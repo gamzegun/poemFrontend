@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MockData} from '../../mock-data/mockData';
+import {HomePage, HomePageControllerService} from "../../swagger-api";
 
 @Component({
   selector: 'app-header',
@@ -7,16 +7,19 @@ import {MockData} from '../../mock-data/mockData';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  public headerMock: any;
+  header: HomePage={letter1:"", letter2:"", letter3:"", bigLetter:"",
+    pictureHomePage:""};
 
-  constructor(private mockData: MockData) {
+  constructor(private homePageControllerService: HomePageControllerService) {
   }
 
   ngOnInit(): void {
-    this.headerMock = this.mockData.homePageMock;
+    this.get()
   }
 
-  getImage() {
-    return 'url(' + this.headerMock.pictureHomePage + ')';
+  get() {
+    this.homePageControllerService.get().subscribe(response => {
+      this.header = response.data
+    })
   }
 }

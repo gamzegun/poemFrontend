@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MockData} from '../../mock-data/mockData';
+import {HomePage, HomePageControllerService} from "../../swagger-api";
 
 @Component({
   selector: 'app-letter',
@@ -7,13 +7,18 @@ import {MockData} from '../../mock-data/mockData';
   styleUrls: ['./letter.component.css']
 })
 export class LetterComponent implements OnInit {
-  public letterMock: any;
+  header: HomePage={letter1:"", letter2:"", letter3:"", bigLetter:"", pictureHomePage:""};
 
-  constructor(private mock: MockData) {
+  constructor(private homePageControllerService: HomePageControllerService) {
   }
 
-  ngOnInit(): void {
-    this.letterMock = this.mock.homePageMock;
+  ngOnInit() {
+    this.get()
   }
 
+  get() {
+    this.homePageControllerService.get().subscribe(response => {
+      this.header = response.data
+    })
+  }
 }

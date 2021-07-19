@@ -54,7 +54,7 @@
 -->
 <div [ngClass]="panelClass" id="container">
   <div class="form-container sign-up-container">
-    <form action="#" (ngSubmit)="registered()" #loginForm="ngForm" >
+    <form #loginForm="ngForm" (ngSubmit)="logIn()" action="#">
       <h1>Hesap Oluştur</h1>
       <!--<div class="social-container">
         <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -62,30 +62,32 @@
         <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
       </div>
       <span>or use your email for registration</span>-->
-      <input type="text" id="name" name="name" #name="ngModel" class="form-control" ngModel required placeholder="Name" />
-      <span class="help-block" *ngIf="name.invalid && name.touched">Bu alan boş bırakılamaz!</span>
-      <input type="email" id="email" name="email" required #email="ngModel" ngModel placeholder="Email" />
-      <span class="help-block" *ngIf="email.invalid && email.touched">Bu alan boş bırakılamaz!</span>
-      <input type="password" id="password" name="password" required #password="ngModel"  ngModel placeholder="Password" />
-      <span class="help-block" *ngIf="password.invalid && password.touched">Bu alan boş bırakılamaz!</span>
-      <button class="btn" [disabled]="loginForm.invalid">Kayıt Ol</button>
+      <input #name="ngModel" class="form-control" id="name" name="name" ngModel placeholder="Name" required
+             type="text"/>
+      <span *ngIf="name.invalid && name.touched" class="help-block">Bu alan boş bırakılamaz!</span>
+      <input #email="ngModel" id="email" name="email" ngModel placeholder="Email" required type="email"/>
+      <span *ngIf="email.invalid && email.touched" class="help-block">Bu alan boş bırakılamaz!</span>
+      <input #password="ngModel" id="password" name="password" ngModel placeholder="Password" required type="password"/>
+      <span *ngIf="password.invalid && password.touched" class="help-block">Bu alan boş bırakılamaz!</span>
+      <button [disabled]="loginForm.invalid" class="btn">Kayıt Ol</button>
     </form>
   </div>
   <div class="form-container sign-in-container">
-    <form action="#" (ngSubmit)="signIn()" #loginForm = "ngForm">
-      <h1 >Giriş Yap</h1>
+    <form #loginForm="ngForm"  (ngSubmit)="signUp()" action="#">
+      <h1>Giriş Yap</h1>
       <!--<div class="social-container">
         <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
         <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
       </div>
       <span>or use your account</span>-->
-      <input type="email" id="email1" name="email1" required #email1="ngModel" ngModel placeholder="Email" />
-      <span class="help-block" *ngIf="email1.invalid && email1.touched">Lütfen mail adresinizi girin!</span>
-      <input type="password" id="password1" name="password1" required #password1="ngModel"  ngModel placeholder="Password" />
-      <span class="help-block" *ngIf="password1.invalid && password1.touched">Lütfen şifrenizi girin!</span>
+      <input #email1="ngModel" id="email1" name="email1" ngModel placeholder="Email" required type="email"/>
+      <span *ngIf="email1.invalid && email1.touched" class="help-block">Lütfen mail adresinizi girin!</span>
+      <input #password1="ngModel" id="password1" name="password1" ngModel placeholder="Password" required
+             type="password"/>
+      <span *ngIf="password1.invalid && password1.touched" class="help-block">Lütfen şifrenizi girin!</span>
       <a href="#">Şifremi unuttum?</a>
-      <button [routerLink]="['/user-page']" class="btn" type="submit" [disabled]="loginForm.invalid">Giriş yap</button>
+      <button [disabled]="loginForm.invalid" [routerLink]="['/user-page']" class="btn" type="submit">Giriş yap</button>
     </form>
   </div>
   <div class="overlay-container">
@@ -93,12 +95,12 @@
       <div class="overlay-panel overlay-left">
         <h1>Tekrardan Hoşgeldiniz!</h1>
         <p>Sayfaya ulaşmak için lütfen bilgilerinizi girin!</p>
-        <button class="ghost" id="signIn" (click)="leftPanelActive()">Giriş Yap</button>
+        <button (click)="leftPanelActive()" class="ghost" id="signIn">Giriş Yap</button>
       </div>
       <div class="overlay-panel overlay-right">
         <h1>Merhaba,</h1>
         <p>Kayıt olmak için lütfen bilgilerinizi giriniz!</p>
-        <button class="ghost" id="signUp" (click)="rightPanelActive()">Kayıt Ol</button>
+        <button (click)="rightPanelActive()" class="ghost" id="signUp">Kayıt Ol</button>
       </div>
     </div>
   </div>

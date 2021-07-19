@@ -70,14 +70,33 @@
     <select #category ><option *ngFor="let category of categoryList" [selected]="category==true" [value]="category">{{category}}</option></select>
     <button type="button" class="btn btn-primary" (click)="addPoem(title.value, writer.value,poem.value)">Şiir Ekle</button></div>
 </div>-->
-<div></div>
+<!--<div></div>
 <body class="body5" style="margin-top: 120px" >
 <div style="text-align: center;">
   <div style="width: 500px; margin: 20px auto;">
     <input #title  placeholder="Şiir adı" style="border-style: none;background-color: transparent; border-bottom-style: ridge"><br>
     <input #writer placeholder="Yazar adı" style="border-style: none;background-color: transparent; border-bottom-style: ridge"><br>
-    <textarea rows="20" cols="50" #poem placeholder="Şiiri yazınız..." style="border-style: none;background-color: transparent"></textarea><br>
+    <textarea rows="20" cols="50" #poem id="poemW" placeholder="Şiiri yazınız..." style="border-style: none;background-color: transparent"></textarea><br>
 <button type="menu" class="menu" (click)="addPoem(title.value, writer.value,poem.value)">Şiir Ekle</button></div>
-</div>
-</body>
+  <button type="menu" class="menu" style="margin-right: 316px;" (click)="changed()">Geri dön</button>
 
+</div>
+</body>-->
+
+<body translate="no" >
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display|Playfair+Display+SC" rel="stylesheet">
+
+<div id="main" >
+  <div class="card" ></div>
+  <div class="img"></div>
+  <div class="block"></div>
+  <div class="para">
+
+    <input placeholder="Şiir adı" style="border-style: none;background-color: transparent; border-bottom-style: ridge; font-size: large "><br>
+    <input placeholder="Yazar adı" style="border-style: none;background-color: transparent; border-bottom-style: ridge; font-size: large"><br>
+    <textarea rows="20" cols="50" #poem id="poemW" placeholder="Şiiri yazınız..." style="border-style: none;background-color: transparent;font-size: large;margin-left: 113px"></textarea><br>
+    <button type="menu" class="menu" style="font-size: initial; border-radius: 50%; padding: 11px; background: #c77b219e" (click)="changed()">Geri dön</button>
+    <button type="menu" class="menu" style="margin-left: 252px; font-size: initial; border-radius: 50%; padding: 11px; background: #c77b219e"  (click)="addPoem()">Şiir Ekle</button>
+    </div>
+  </div>
+</body>

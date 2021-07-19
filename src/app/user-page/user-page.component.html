@@ -20,7 +20,7 @@
     <div class="col-md-4 col-sm-6 col-xs-12">
       <article class="material-card Red">
         <h2>
-          <span>Şiir Ekle</span>
+          <span [routerLink]="['/poem']" style="color: white ;cursor: pointer;">Şiir Ekle</span>
           <!--<strong>
             <i class="fa fa-fw fa-star"></i>
             The Deer Hunter
@@ -51,7 +51,7 @@
     <div class="col-md-4 col-sm-6 col-xs-12">
       <article class="material-card Pink">
         <h2>
-          <span>Mesajlar</span>
+          <span style="color: white ;cursor: pointer;">Mesajlar</span>
           <!--<strong>
             <i class="fa fa-fw fa-star"></i>
             Mystic River
@@ -79,16 +79,17 @@
         </div>
       </article>
     </div>
-    <div class="col-md-4 col-sm-6 col-xs-12">
+    <div  class="col-md-4 col-sm-6 col-xs-12">
       <article class="material-card Purple">
         <h2>
-          <span>Tüm Şiirleri Gör</span>
-          <!--<strong>
+          <span style="color: white ;cursor: pointer;"   >Tüm Şiirleri Gör</span>
+          <p *ngFor="let poems of poemsAll"> Şiir adı: {{poems.title}}, Yazar adı: {{poems.writer}}</p>
+         <!-- <strong>
             <i class="fa fa-fw fa-star"></i>
             Million Dollar Baby
           </strong>-->
         </h2>
-        <div class="mc-content">
+        <div  class="mc-content">
           <div class="img-container">
             <img class="img-responsive" src="https://material-cards.s3-eu-west-1.amazonaws.com/thumb-clint-eastwood.jpg">
           </div>
@@ -113,7 +114,7 @@
     <div class="col-md-4 col-sm-6 col-xs-12">
       <article class="material-card Deep-Purple">
         <h2>
-          <span>Yeni Kategori Ekle</span>
+          <span style="color: white ;cursor: pointer;">Yeni Kategori Ekle</span>
          <!-- <strong>
             <i class="fa fa-fw fa-star"></i>
             Kramer vs. Kramer
@@ -144,7 +145,7 @@
     <div class="col-md-4 col-sm-6 col-xs-12 ">
       <article class="material-card Indigo">
         <h2>
-          <span>Çıkış</span>
+          <span style="color: white ;cursor: pointer;" [routerLink]="['/']">Çıkış</span>
           <!--<strong>
             <i class="fa fa-fw fa-star"></i>
             American History X
@@ -172,6 +173,7 @@
         </div>
       </article>
     </div>
+
   <!--  <div class="col-md-4 col-sm-6 col-xs-12">
       <article class="material-card Blue">
         <h2>

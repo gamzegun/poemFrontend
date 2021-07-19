@@ -1,5 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {MockData} from '../../mock-data/mockData';
+import {Component, OnInit, NgModule} from '@angular/core';
+import {Router} from "@angular/router";
+import {CategoryControllerService, Poem, PoemControllerService} from "../../swagger-api";
+
 
 @Component({
   selector: 'app-poem',
@@ -7,18 +9,76 @@ import {MockData} from '../../mock-data/mockData';
   styleUrls: ['./poem.component.css']
 })
 export class PoemComponent implements OnInit {
-  categoryList: string[] = ['Aşk', 'Doğa', 'Arkadaşlık', 'Mutluluk'];
-  public poemMock: any;
+  public categoryData = [];
+  changedStatues = false;
+  status = true;
+  title: string = "";
+  public writer: string = "";
+  public poemDetail: string = "";
+  public categoryId: number = 0;
+  // @ts-ignore
+  public id: number;
 
-  constructor(private mock: MockData) {
+
+  constructor(private poemControllerService: PoemControllerService,
+              private categoryControllerService: CategoryControllerService, private router: Router) {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.getAllCategories()
   }
 
-  addPoem(writer: string, title: string, poem: string) {
-    this.poemMock = this.mock.poemMock;
-    this.poemMock.push([{title, writer, poem}]);
-    console.log(this.poemMock);
+  addPoem() {
+    let data: Poem = {
+      title: this.title,
+      writer: this.writer,
+      categoryId: this.categoryId,
+      poemDetail: this.poemDetail,
+      date: new Date(),
+      userId: 1
+    }
+    this.poemControllerService.add2(data).subscribe(response => {
+      if (response.data === 200) {
+
+      } else {
+
+      }
+    })
+  }
+
+  updatePoem() {
+    let data: Poem = {
+      id: this.id,
+      title: this.title,
+      writer: this.writer,
+      categoryId: this.categoryId,
+      poemDetail: this.poemDetail,
+      date: new Date(),
+      userId: 1
+    }
+    this.poemControllerService.update2(data).subscribe(response => {
+      if (response.data === 200) {
+
+      } else {
+
+      }
+    })
+  }
+
+  getAllCategories() {
+    this.categoryControllerService.getAll().subscribe(response => {
+      this.categoryData = response.data;
+    })
+  }
+
+  changed() {
+    if (!this.changedStatues) {
+      confirm('Değişiklikleri kaydetmek istiyor musunuz?')
+    } else {
+      this.router.navigate(['/user-page'])
+    }
+    if (!this.status) {
+      this.router.navigate(['/user-page'])
+    }
   }
 }

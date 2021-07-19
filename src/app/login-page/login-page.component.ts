@@ -1,5 +1,6 @@
 import {NgForm} from '@angular/forms';
 import {Component, OnInit, ViewChild} from '@angular/core';
+import {Login, User, UserControllerService} from "../../swagger-api";
 
 
 @Component({
@@ -9,11 +10,15 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 })
 export class LoginPageComponent implements OnInit {
   @ViewChild('loginForm') loginForm: NgForm | any;
-  userData = {username: '', email: '', password: ''};
-
   public panelClass = 'container';
+  username: string = "";
+  usernameForSignup: string = "";
+  password: string = "";
+  passwordForSignup: string = "";
+  name: string = "";
 
-  constructor() {
+
+  constructor(private userControllerService: UserControllerService) {
   }
 
   ngOnInit(): void {
@@ -26,6 +31,34 @@ export class LoginPageComponent implements OnInit {
   leftPanelActive() {
     this.panelClass = 'container';
   }
-  signIn(){}
-  registered(){}
+
+  logIn() {
+    let data: Login = {
+      username: this.username,
+      password: this.password
+    }
+    this.userControllerService.login(data).subscribe(response => {
+      if (response.data === 200) {
+
+      } else {
+
+      }
+    })
+  }
+
+  signUp() {
+    let data: User = {
+      username: this.usernameForSignup,
+      password: this.passwordForSignup,
+      name: this.name
+
+    }
+    this.userControllerService.add3(data).subscribe(response => {
+      if (response.data === 200) {
+
+      } else {
+
+      }
+    })
+  }
 }
