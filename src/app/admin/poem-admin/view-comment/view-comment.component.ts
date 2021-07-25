@@ -8,17 +8,8 @@ import {MatDialogRef} from "@angular/material/dialog";
 })
 export class ViewCommentComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<ViewCommentComponent>) { }
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  actionFunction() {
-    alert("You have logged out.");
-    this.closeModal();
-  }
-
-  closeModal() {
-    this.dialogRef.close();
   }
 }

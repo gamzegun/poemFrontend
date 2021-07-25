@@ -22,7 +22,6 @@ import { CategoryAdminComponent } from './admin/category-admin/category-admin.co
 import { AddComponent } from './admin/poem-admin/add/add.component';
 import { ViewCommentComponent } from './admin/poem-admin/view-comment/view-comment.component';
 import { HomeSettingsModalComponent } from './admin/home-settings-modal/home-settings-modal.component';
-import {ModalModule, TooltipModule, PopoverModule, ButtonsModule, WavesModule} from 'angular-bootstrap-md';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";

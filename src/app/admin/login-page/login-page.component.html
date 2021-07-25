@@ -1,93 +1,27 @@
-<!--
-
-
-<div class="container"  style="background-color:  #eeeeeebf " >
-  <h1 class="text-center">Lütfen Giriş Yapınız</h1>
-  <div class="col">
-    <div class="col-xs-12 col-sm-10 col-md-8 col-xs-offset-1 col-md-offset-2">
-      <form (ngSubmit)="loginAdmin()" #loginForm= "ngForm" >
-        <div id="data-entered"
-             ngModelGroup="dataEntered">
-        <div class="form-group">
-          <label for="username">Kullanıcı Adı</label>
-          <input class="form-control"
-                 id="username"
-                 name="username"
-                 type="text"
-                 ngModel
-                 required
-                  #username="ngModel">
-          <span class="help-block" *ngIf="username.invalid && username.touched">Lütfen bir isim girin!</span>
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input class="form-control"
-                 id="email"
-                 name="email"
-                 type="text"
-                 ngModel
-                 required
-                 email
-                 #email = "ngModel">
-          <span class="help-block" *ngIf="email.invalid && email.touched">Lütfen bir email girin!</span>
-
-        </div>
-        </div>
-        <div class="col">
-          <label for="password">Şifre</label>
-          <input class="form-control"
-                 id="password"
-                 name="password"
-                 type="password"
-                 ngModel
-                 required
-                 #password = "ngModel">
-          <span class="help-block" *ngIf="password.invalid && password.touched">Lütfen bir şifre girin!</span>
-        </div>
-        <hr>
-        <button class="btn btn-primary col-xs-16" style="padding: 8px 31px;" type="submit" [disabled]="loginForm.invalid"  [routerLink]="['/user-page']" (click)="loginAdmin()">Yönetici Girişi</button>
-      </form>
-    </div>
-  </div>
-</div>
-
--->
 <div [ngClass]="panelClass" id="container">
   <div class="form-container sign-up-container">
-    <form #loginForm="ngForm" (ngSubmit)="logIn()" action="#">
+    <form #signUpForm="ngForm" (ngSubmit)="signUp()" action="#">
       <h1>Hesap Oluştur</h1>
-      <!--<div class="social-container">
-        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-      </div>
-      <span>or use your email for registration</span>-->
       <input #name="ngModel" class="form-control" id="name" name="name" ngModel placeholder="Name" required
              type="text"/>
       <span *ngIf="name.invalid && name.touched" class="help-block">Bu alan boş bırakılamaz!</span>
-      <input #email="ngModel" id="email" name="email" ngModel placeholder="Email" required type="email"/>
-      <span *ngIf="email.invalid && email.touched" class="help-block">Bu alan boş bırakılamaz!</span>
+      <input #username1="ngModel" id="username1" name="username1" ngModel placeholder="Kullanıcı adı" required type="username"/>
+      <span *ngIf="username1.invalid && username1.touched" class="help-block">Bu alan boş bırakılamaz!</span>
       <input #password="ngModel" id="password" name="password" ngModel placeholder="Password" required type="password"/>
       <span *ngIf="password.invalid && password.touched" class="help-block">Bu alan boş bırakılamaz!</span>
       <button [disabled]="loginForm.invalid" class="btn">Kayıt Ol</button>
     </form>
   </div>
   <div class="form-container sign-in-container">
-    <form #loginForm="ngForm"  (ngSubmit)="signUp()" action="#">
+    <form #loginForm="ngForm" (ngSubmit)="logIn()" action="#">
       <h1>Giriş Yap</h1>
-      <!--<div class="social-container">
-        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-      </div>
-      <span>or use your account</span>-->
-      <input #email1="ngModel" id="email1" name="email1" ngModel placeholder="Email" required type="email"/>
-      <span *ngIf="email1.invalid && email1.touched" class="help-block">Lütfen mail adresinizi girin!</span>
-      <input #password1="ngModel" id="password1" name="password1" ngModel placeholder="Password" required
+      <input #username="ngModel" id="username" name="username" ngModel placeholder="Kullanıcı adı" required type="text"/>
+      <span *ngIf="username.invalid && username.touched" class="help-block">Lütfen mail adresinizi girin!</span>
+      <input #password1="ngModel" id="password1" name="password1" ngModel placeholder="Şifre" required
              type="password"/>
       <span *ngIf="password1.invalid && password1.touched" class="help-block">Lütfen şifrenizi girin!</span>
       <a href="#">Şifremi unuttum?</a>
-      <button [disabled]="loginForm.invalid" [routerLink]="['/user-page']" class="btn" type="submit">Giriş yap</button>
+      <button class="btn" type="submit">Giriş yap</button>
     </form>
   </div>
   <div class="overlay-container">

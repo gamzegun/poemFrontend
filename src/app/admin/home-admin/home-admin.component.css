@@ -201,7 +201,6 @@ h1 {
 .material-card {
   position: inherit;
   height: 0;
-  padding-bottom: calc(100% - 16px);
   margin-bottom: 6.6em;
 }
 .material-card h2 {
@@ -383,9 +382,28 @@ h1 {
 .material-card.Red.mc-active .mc-btn-action {
   border-color: #dfb8e3cc;
 }
-
 .h2-before{
+  top: calc(40% - 20px)!important;}
+.h3-before{
   top: calc(40% - 20px)!important;
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  padding: 10px 16px;
+  color: #fff;
+  font-size: 18px;
+  line-height: 2.6em;
+  margin: 0;
+  text-align: center;
+  z-index: 10;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  border-bottom-right-radius: 23%;
+  background-color: #8b07a2;
+  font-family: "Segoe Script", serif;
 }
 
 h1,

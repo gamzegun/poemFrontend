@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import {MatDialog} from "@angular/material/dialog";
 import {ViewCommentComponent} from "../poem-admin/view-comment/view-comment.component";
+import {Category, CategoryControllerService, Poem, PoemControllerService} from "../../../swagger-api";
 
 @Component({
   selector: 'app-home-admin',
@@ -8,30 +9,41 @@ import {ViewCommentComponent} from "../poem-admin/view-comment/view-comment.comp
   styleUrls: ['./home-admin.component.css']
 })
 export class HomeAdminComponent implements OnInit {
-  materialCardClass:string="material-card Red"
-  visibleCard:boolean=false;
+  defaultMaterialCardClass:string="material-card Red";
+  materialCardClass="material-card mc-active Red";
+  poemId:number | undefined=0;
+  public categoryData: Category[]=[];
+  public poemData: Poem[]=[];
 
-  constructor(public matDialog: MatDialog) { }
+  constructor(public matDialog: MatDialog, private poemControllerService:PoemControllerService,
+              private  categoryControllerService: CategoryControllerService) { }
 
   openModal() {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.id = "modal-component";
-    dialogConfig.height = "350px";
-    dialogConfig.width = "600px";
-    const modalDialog = this.matDialog.open(ViewCommentComponent, dialogConfig);
+    this.matDialog.open(ViewCommentComponent)
   }
 
   ngOnInit() {
+    this.getCategories();
+    this.getPoems();
   }
 
-  activeClass(){
-    this.materialCardClass="material-card mc-active Red"
-    this.visibleCard=true;
-  }
-  passiveClass(){
-    this.materialCardClass="material-card Red"
-    this.visibleCard=false;
+  classControl(id:number | undefined){
+    if(id===this.poemId){
+      return this.materialCardClass
+    } else {
+      return this.defaultMaterialCardClass
+    }
   }
 
+  getCategories(){
+    this.categoryControllerService.getAll().subscribe(response=> {
+      this.categoryData=response.data
+    })
+
+  }
+  getPoems(){
+    this.poemControllerService.getAllByUserIdAndCount(2).subscribe(response=> {
+      this.poemData=response.data
+    })
+  }
 }
