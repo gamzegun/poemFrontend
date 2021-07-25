@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CategoryControllerService} from "../../swagger-api";
+import {CategoryControllerService} from "../../../swagger-api";
 
 @Component({
   selector: 'app-category',

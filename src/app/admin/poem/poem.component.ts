@@ -1,6 +1,6 @@
 import {Component, OnInit, NgModule} from '@angular/core';
 import {Router} from "@angular/router";
-import {CategoryControllerService, Poem, PoemControllerService} from "../../swagger-api";
+import {CategoryControllerService, Poem, PoemControllerService} from "../../../swagger-api";
 
 
 @Component({

@@ -3,7 +3,16 @@
  * Code licensed under the Apache License v2.0.
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
-
+mat-dialog-container#modal-component {
+  border: 3px solid #262626;
+  border-radius: 11px;
+  background-color: #1a1a1a;
+}
+#logout-button {
+  color: white;
+  background-color: #4b4b4b;
+  border: 1px solid black;
+}
 body {
   overflow-x: hidden;
   font-family: "Segoe Script";

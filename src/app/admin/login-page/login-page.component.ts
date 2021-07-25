@@ -1,6 +1,6 @@
 import {NgForm} from '@angular/forms';
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Login, User, UserControllerService} from "../../swagger-api";
+import {Login, User, UserControllerService} from "../../../swagger-api";
 
 
 @Component({

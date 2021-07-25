@@ -1,0 +1,14 @@
+
+.navbar-container
+{
+  background-image: -webkit-gradient(linear, left top, right top, from(#9f78ff), to(#32cafe));
+  background-image: -webkit-linear-gradient(left, #9f78ff, #32cafe);
+  background-image:    -moz-linear-gradient(left, #9f78ff, #32cafe);
+  background-image:      -o-linear-gradient(left, #9f78ff, #32cafe);
+  background-image:         linear-gradient(to right, #9f78ff, #32cafe);
+  background-repeat: repeat-x;
+  height: 180px;
+  opacity: 75%;
+box-shadow: 24px 23px 93px -25px #423a3a;
+
+}

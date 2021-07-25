@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HomePage, HomePageControllerService} from "../../swagger-api";
+import {HomePage, HomePageControllerService} from "../../../swagger-api";
 
 @Component({
   selector: 'app-header',
