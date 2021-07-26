@@ -3,7 +3,7 @@
   <div class="half-circle"></div>
   <div class="half-circle view-all-circle"></div>
   <div class="line-full"><span class="view-content-title">Şiirler</span></div>
-  <div class="add-button">+</div>
+  <div class="add-button" (click)="addPoem()" >+</div>
   <div class="add-button view-all"><img class="icon-v-all" src="assets/search.svg"/></div>
     <section class="section">
       <div class="grid">
@@ -48,9 +48,9 @@
             </div>
           <div class="item__details">
             <div style="width: 90%">
-              <img class="other-icon" (click)="openModal()" src="assets/view.svg"/>
-              <img class="other-icon" src="assets/edit.svg"/>
-              <img class="other-icon" src="assets/delete.svg"/>
+              <img class="other-icon" (click)="openCommentModal()" src="assets/view.svg"/>
+              <img class="other-icon" (click)="openEditModal(poem.id)" src="assets/edit.svg"/>
+              <img class="other-icon" (click)="openDeleteModal(poem.id)" src="assets/delete.svg"/>
 
             </div>
           </div>
@@ -63,7 +63,7 @@
   <div class="half-circle"></div>
   <div class="half-circle view-all-circle"></div>
   <div class="line-full"><span class="view-content-title">Kategoriler</span></div>
-  <div class="add-button">+</div>
+  <div class="add-button" (click)="addCategory()">+</div>
   <div class="add-button view-all"><img class="icon-v-all" src="assets/search.svg"/></div>
   <section class="section">
     <div class="grid">

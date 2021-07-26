@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-view-comment',
@@ -8,8 +7,10 @@ import {MatDialogRef} from "@angular/material/dialog";
 })
 export class ViewCommentComponent implements OnInit {
 
+
   constructor() { }
 
   ngOnInit() {
+
   }
 }

@@ -25,6 +25,12 @@ import { HomeSettingsModalComponent } from './admin/home-settings-modal/home-set
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { DeleteComponent } from './admin/poem-admin/delete/delete.component';
+import {AddCategoryComponent} from "./admin/category-admin/add/add.component";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
+import {MatInputModule} from "@angular/material/input";
+import {MatOptionModule} from "@angular/material/core";
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,8 +47,10 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     PoemAdminComponent,
     CategoryAdminComponent,
     AddComponent,
+    AddCategoryComponent,
     ViewCommentComponent,
-    HomeSettingsModalComponent
+    HomeSettingsModalComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +62,11 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     HttpClientModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatOptionModule
   ],
   providers: [],
   bootstrap: [AppComponent],

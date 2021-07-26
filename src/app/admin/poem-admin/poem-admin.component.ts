@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Poem, PoemControllerService} from "../../../swagger-api";
 
 @Component({
   selector: 'app-poem-admin',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PoemAdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(private poemControllerService:PoemControllerService) { }
 
   ngOnInit(): void {
   }

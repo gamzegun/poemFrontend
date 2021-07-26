@@ -1,1 +1,16 @@
-<p>add works!</p>
+<div style="background-color: #00b0ff;color: white">
+  <div *ngFor="let message of errorMessages">
+  <h3>{{message}}</h3><br>
+  </div>
+  </div>
+<input [(ngModel)]="poemName"  id="poemName" placeholder="Şiir adını giriniz"><br>
+
+<input [(ngModel)]="writer" id="writer" placeholder="Yazar adını giriniz"><br>
+<textarea [(ngModel)]="poemDetail" id="poemDetail" placeholder="Şiiri yazınız"></textarea><br>
+<mat-select placeholder="Kategori seçiniz" [(ngModel)]="selectedValue" >
+  <mat-option *ngFor="let category of categoryData" [value]="category.id">{{category.categoryName}}</mat-option>
+</mat-select>
+<button mat-button *ngIf="data!==null && data!==undefined; else addBtn" (click)="edit()">Kaydet</button>
+<ng-template #addBtn ><button mat-button (click)="add()">Ekle</button></ng-template>
+
+<button mat-button (click)="close()">Kapat</button>

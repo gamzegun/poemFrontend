@@ -1,1 +1,5 @@
-<p>add works!</p>
+<input [(ngModel)]="categoryName"  id="categoryName" placeholder="Kategori adını giriniz"><br>
+<input [(ngModel)]="categoryDescription" id="writer" placeholder="Kategori açıklamasını girin">
+<input [(ngModel)]="picture" id="poemDetail" placeholder="Resim URL girin"><br>
+<button mat-button  (click)="addCategory()">Ekle</button>
+<button mat-button (click)="close()">Kapat</button>
