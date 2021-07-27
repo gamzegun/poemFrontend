@@ -103,13 +103,18 @@ export class CommentControllerService {
     /**
      * 
      * 
+     * @param poemId 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getAll1(observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
-    public getAll1(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
-    public getAll1(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
-    public getAll1(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public getAll1(poemId: number, observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
+    public getAll1(poemId: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
+    public getAll1(poemId: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
+    public getAll1(poemId: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (poemId === null || poemId === undefined) {
+            throw new Error('Required parameter poemId was null or undefined when calling getAll1.');
+        }
 
         let headers = this.defaultHeaders;
 
@@ -126,7 +131,7 @@ export class CommentControllerService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<ResponseModel>('get',`${this.basePath}/rest/comment/getAll`,
+        return this.httpClient.request<ResponseModel>('get',`${this.basePath}/rest/comment/getAll/${encodeURIComponent(String(poemId))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,

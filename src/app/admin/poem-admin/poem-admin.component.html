@@ -1,1 +1,61 @@
+<app-navbar-admin *ngIf="allPoemsStatus"></app-navbar-admin>
+<div class="all-view">
+  <div class="half-circle"></div>
+  <div class="half-circle view-all-circle" *ngIf="!allPoemsStatus"></div>
+  <div class="line-full"><span class="view-content-title">Şiirler</span></div>
+  <div class="add-button" (click)="addPoem()" >+</div>
+  <div class="add-button view-all" *ngIf="!allPoemsStatus" (click)="viewAllPoems()"><img class="icon-v-all" src="assets/search.svg"/></div>
+  <section class="section">
+    <div class="grid">
+      <div class="item item--medium" [ngStyle]="{'background-image':'url('+poem.pictureLink+')'}" *ngFor="let poem of poemData" (mouseleave)="poemId=0" (mouseover)="poemId=poem.id">
+        <div class="row active-with-click" *ngIf="poem.id === poemId">
+          <article [ngClass]="classControl(poem.id)">
+            <h2>
+              <span>{{poem.title}}</span>
+              <strong>
+                <i class="fa fa-fw fa-star"></i>
+                {{poem.date}}
+              </strong>
+            </h2>
+            <div class="mc-content">
+              <div class="img-container">
+                <img class="img-responsive imageRes"
+                     src="{{poem.pictureLink}}">
+              </div>
+              <div class="mc-description">
+                {{poem.poemDetail}}
+                <h4>
+                  {{poem.writer}}
+                </h4>
+              </div>
+            </div>
+            <a class="mc-btn-action">
+              <i class="fa fa-bars"></i>
+            </a>
+          </article>
 
+        </div>
+        <div class="row active-with-click" *ngIf="poem.id !== poemId">
+          <article [ngClass]="classControl(poem.id)">
+            <h2 class="h2-before">
+              <span>{{poem.title}}</span>
+              <strong>
+                <i class="fa fa-fw fa-star"></i>
+                {{poem.date}}
+              </strong>
+            </h2>
+          </article>
+        </div>
+        <div class="item__details">
+          <div style="width: 90%">
+            <img class="other-icon" (click)="openCommentModal(poem.id)" src="assets/view.svg"/>
+            <img class="other-icon" (click)="openEditModal(poem.id)" src="assets/edit.svg"/>
+            <img class="other-icon" (click)="openDeleteModal(poem.id)" src="assets/delete.svg"/>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>

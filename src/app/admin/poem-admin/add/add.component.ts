@@ -75,6 +75,7 @@ export class AddComponent implements OnInit {
   }
 
   getDetail(){
+    if (this.data!==null && this.data!==undefined){
     this.poemControllerService.getById(this.data).subscribe(response => {
       if (response.code === 200) {
         this.poemData=response.data;
@@ -87,7 +88,7 @@ export class AddComponent implements OnInit {
         Swal.fire("Hata", "Şiir bulunamadı!", "error");
       }
     });
-  }
+  }}
 
   getCategories() {
     this.categoryControllerService.getAll().subscribe(response => {

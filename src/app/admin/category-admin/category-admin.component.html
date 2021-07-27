@@ -1,1 +1,26 @@
+<div class="all-view">
+  <div class="half-circle"></div>
+  <div class="line-full"><span class="view-content-title">Kategoriler</span></div>
+  <div class="add-button" (click)="addCategory()">+</div>
+  <section class="section">
+    <div class="grid">
+      <div class="item item--medium" [ngStyle]="{'background-image':'url('+category.pictureLink+')'}" *ngFor="let category of categoryData" >
+        <div class="row active-with-click" >
+          <article [ngClass]="materialCardClass">
+            <span class="h3-before">
+              <span>{{category.categoryName}}</span>
 
+            </span>
+          </article>
+        </div>
+        <div class="item__details">
+          <div style="width: 90%">
+            <img class="other-icon" (click)="openEditCategoryModal(category.id)" src="assets/edit.svg"/>
+            <img class="other-icon" (click)="openDeleteCategoryModal(category.id)" src="assets/delete.svg"/>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>

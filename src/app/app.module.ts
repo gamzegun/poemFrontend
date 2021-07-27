@@ -31,6 +31,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
 import {MatInputModule} from "@angular/material/input";
 import {MatOptionModule} from "@angular/material/core";
+import { DeleteCategoryComponent } from './admin/category-admin/delete-category/delete-category.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +51,8 @@ import {MatOptionModule} from "@angular/material/core";
     AddCategoryComponent,
     ViewCommentComponent,
     HomeSettingsModalComponent,
-    DeleteComponent
+    DeleteComponent,
+    DeleteCategoryComponent
   ],
   imports: [
     BrowserModule,

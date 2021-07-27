@@ -1,5 +1,19 @@
+<div style="background-color: #00b0ff;color: white; font-size: 10px">
+  <div *ngFor="let message of errorMessages">
+    <p>{{message}}</p>
+  </div>
+</div>
 <input [(ngModel)]="categoryName"  id="categoryName" placeholder="Kategori adını giriniz"><br>
-<input [(ngModel)]="categoryDescription" id="writer" placeholder="Kategori açıklamasını girin">
-<input [(ngModel)]="picture" id="poemDetail" placeholder="Resim URL girin"><br>
-<button mat-button  (click)="addCategory()">Ekle</button>
+<input [(ngModel)]="categoryDescription" id="writer" placeholder="Kategori açıklamasını girin"><br>
+
+<mat-select placeholder="Resim seçiniz" [(ngModel)]="picture" >
+  <mat-option *ngFor="let pic of pictures" [value]="pic" >
+    <img src="{{pic}}" width="70px" height="50px"/>
+  </mat-option>
+</mat-select><br>
+
+<ng-template #addBtn>
+  <button mat-button  (click)="addCategory()">Ekle</button>
+</ng-template>
+<button mat-button  (click)="editCategory()" *ngIf="data !==null && data!==undefined; else addBtn">Kaydet</button>
 <button mat-button (click)="close()">Kapat</button>
