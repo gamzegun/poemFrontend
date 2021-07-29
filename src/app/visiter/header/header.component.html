@@ -1,10 +1,12 @@
 <!-- Header -->
-<header [ngStyle]="{'background-image':'url('+header.pictureHomePage+')','box-shadow': '5px -4px 21px 10px #423a3a'}">
+<header [ngStyle]="{'background-image':'url('+header.pictureHomePage+')','box-shadow': '5px -4px 21px 10px #423a3a',
+'height': navbarType? '300px':'', 'margin-top': navbarType? '5%':''}">
   <div class="container">
-    <div class="intro-text">
-      <div class="intro-lead-in">Herkese Merhabalar,</div>
-      <div class="intro-heading">{{header.bigLetter}}</div>
-      <a href="#services" class="page-scroll btn btn-xl">Şiirlere Gözat</a>
+    <div class="intro-text" [ngStyle]="{'margin-top': navbarType? '-16%':''}">
+      <div *ngIf="!navbarType" class="intro-lead-in">Herkese Merhabalar,</div>
+      <div *ngIf="navbarType" class="intro-lead-in">{{bigText}}</div>
+      <div *ngIf="!navbarType" class="intro-heading">{{header.bigLetter}}</div>
+      <a *ngIf="!navbarType" class="page-scroll btn btn-xl" (click)="routeAllPoem(-1)">Şiirlere Gözat</a>
     </div>
     </div>
 </header>

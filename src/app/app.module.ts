@@ -32,6 +32,9 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatInputModule} from "@angular/material/input";
 import {MatOptionModule} from "@angular/material/core";
 import { DeleteCategoryComponent } from './admin/category-admin/delete-category/delete-category.component';
+import { PoemVisiterComponent } from './visiter/poem-visiter/poem-visiter.component';
+import { OnePoemComponent } from './visiter/poem-visiter/one-poem/one-poem.component';
+import { AllPoemComponent } from './visiter/poem-visiter/all-poem/all-poem.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +55,10 @@ import { DeleteCategoryComponent } from './admin/category-admin/delete-category/
     ViewCommentComponent,
     HomeSettingsModalComponent,
     DeleteComponent,
-    DeleteCategoryComponent
+    DeleteCategoryComponent,
+    PoemVisiterComponent,
+    OnePoemComponent,
+    AllPoemComponent
   ],
   imports: [
     BrowserModule,

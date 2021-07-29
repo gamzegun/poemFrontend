@@ -2,53 +2,12 @@
   <div class="navbar-wrapper">
     <div class="navbar-container content">
       <div class="collapse navbar-collapse show" id="navbar-mobile">
-        <ul class="nav navbar-nav mr-auto float-left">
-          <li class="nav-item d-block d-md-none"><a class="nav-link nav-menu-main menu-toggle hidden-xs"
-                                                    href="#"><i class="ft-menu"></i></a></li>
-          <li class="nav-item d-none d-md-block"><a class="nav-link nav-link-expand" href="#"><i
-            class="ficon ft-maximize"></i></a></li>
-          <li class="nav-item dropdown navbar-search"><a class="nav-link dropdown-toggle hide"
-                                                         data-toggle="dropdown" href="#"><i
-            class="ficon ft-search"></i></a>
-            <ul class="dropdown-menu">
-              <li class="arrow_box">
-                <form>
-                  <div class="input-group search-box">
-                    <div class="position-relative has-icon-right full-width">
-                      <input class="form-control" id="search" placeholder="Search here..."
-                             type="text">
-                      <div class="form-control-position navbar-search-close"><i class="ft-x"> </i>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <ul class="nav navbar-nav float-right">
-          <li class="dropdown dropdown-language nav-item"><a aria-expanded="false"
-                                                             aria-haspopup="true" class="dropdown-toggle nav-link"
-                                                             data-toggle="dropdown" href="#"
-                                                             id="dropdown-flag"><i
-            class="flag-icon flag-icon-us"></i><span class="selected-language"></span></a>
 
-          </li>
-        </ul>
-        <ul class="nav navbar-nav float-right">
-          <li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label" data-toggle="dropdown"
-                                                                 href="#"><i
-            class="ficon ft-mail"> </i></a>
-            <div class="dropdown-menu dropdown-menu-right">
-
-            </div>
-          </li>
-          <li class="dropdown dropdown-user nav-item">
-            <div class="dropdown-menu dropdown-menu-right">
-
-            </div>
-          </li>
-        </ul>
+        <div class="icon-v-all" (click)="openSettingModal()">
+          <img class="icon-v-all" src="assets/gear.svg"/>
+        </div>
+        <button  class="btn btn-info text-center" id="button" >Çıkış Yap
+        </button>
       </div>
     </div>
   </div>

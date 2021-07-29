@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from "@angular/material/dialog";
+import {HomeSettingsModalComponent} from "../home-settings-modal/home-settings-modal.component";
 
 @Component({
   selector: 'app-navbar-admin',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar-admin.component.css']
 })
 export class NavbarAdminComponent implements OnInit {
-
-  constructor() { }
+  constructor(public matDialog: MatDialog) { }
 
   ngOnInit(): void {
+  }
+
+  openSettingModal() {
+    this.matDialog.open(HomeSettingsModalComponent)
   }
 
 }

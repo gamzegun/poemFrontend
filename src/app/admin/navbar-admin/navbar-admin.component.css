@@ -12,3 +12,20 @@
 box-shadow: 24px 23px 93px -25px #423a3a;
 
 }
+.icon-v-all{
+  width: 14%;
+  vertical-align: unset!important;
+  cursor: pointer;
+  margin-left: 80%;
+  margin-top: 7px;
+}
+#button{
+  font-weight: 700;
+  padding: 13px 12px;
+  border-radius: 12px;
+  font-size: 16px;
+  margin-left: 94%;
+  margin-top: -62px;
+  background-color: red;
+  cursor: pointer;
+}

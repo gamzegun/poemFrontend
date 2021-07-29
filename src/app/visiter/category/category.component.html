@@ -1,40 +1,27 @@
-<!-- Category Grid Section -->
-<section id="portfolio" class="bg-light-gray">
-  <!--<div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-heading">Kategoriler</h2>
-        <h3 class="section-subheading text-muted">Tüm şiirler burada toplanıyor</h3>
-      </div>
-    </div>
-    <div class="row">
-      <div *ngFor="let category of categoryMock" >
-      <div class="col-md-4 col-sm-6 portfolio-item">
-        <a class="portfolio-link" data-toggle="modal">
-          <div class="portfolio-hover">
-            <div class="portfolio-hover-content">
-              <i class="fa fa-plus fa-3x"></i>
-            </div>
-          </div>
-          <img [src]="category.pictureCategory" class="img-responsive" [alt]="category.categoryName">
-        </a>
-        <div class="portfolio-caption">
-          <h4>{{category.categoryName}}</h4>
-          <p class="text-muted">{{category.description}}</p>
+<div class="all-view">
+  <div class="half-circle"></div>
+  <div class="line-full"><span class="view-content-title">Kategoriler</span></div>
+  <section class="section">
+    <div class="grid">
+      <div class="item item--medium" (click)="routeAllPoem(category.id, category.categoryName)" [ngStyle]="{'background-image':'url('+category.pictureLink+')'}" *ngFor="let category of categoryData" >
+        <div class="row active-with-click">
+          <article [ngClass]="materialCardClass">
+            <span class="h3-before">
+              <span>{{category.categoryName}}</span>
+            </span>
+          </article>
         </div>
       </div>
-      </div>
     </div>
-  </div>-->
-  <ul id="categories" class="clr">
-    <li class="pusher">
-    <li>
-      <div >
-        <img src="https://farm3.staticflickr.com/2878/10944255073_973d2cd25c.jpg" alt=""/>
-        <h1>This is a title a bit longer</h1>
-        <p>Some sample text about the article this hexagon leads to</p>
-      </div>
-    </li>
+  </section>
+</div>
 
-  </ul>
-</section>
+<div class="item item--medium" [ngStyle]="{'background-image':'url('+poem.pictureLink+')'}" *ngFor="let poem of poemData" >
+  <div class="row active-with-click">
+    <article [ngClass]="materialCardClass">
+            <span class="h3-before">
+              <span>{{poem.poemDetail}}</span>
+            </span>
+    </article>
+  </div>
+</div>

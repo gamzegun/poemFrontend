@@ -1,0 +1,19 @@
+<app-navigation-bar></app-navigation-bar>
+<app-header [navbarType]="true" [bigText]="categoryName"></app-header>
+<div class="all-view">
+  <div class="half-circle"></div>
+  <div class="line-full"><span class="view-content-title">Şiirler</span></div>
+  <section class="poem-section">
+<ul id="categories" class="clr">
+  <li class="pusher"></li>
+  <li  *ngFor="let poem of poemData">
+    <div>
+      <img [src]="poem.pictureLink" alt=""/>
+      <h1>{{poem.title}}</h1>
+      <p>{{poem.poemDetail}}</p>
+    </div>
+  </li>
+
+</ul>
+  </section></div>
+

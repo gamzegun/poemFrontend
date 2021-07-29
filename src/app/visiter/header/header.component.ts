@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {HomePage, HomePageControllerService} from "../../../swagger-api";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -9,8 +10,10 @@ import {HomePage, HomePageControllerService} from "../../../swagger-api";
 export class HeaderComponent implements OnInit {
   header: HomePage={letter1:"", letter2:"", letter3:"", bigLetter:"",
     pictureHomePage:""};
+  @Input() navbarType:boolean=false;
+  @Input() bigText:string|undefined='';
 
-  constructor(private homePageControllerService: HomePageControllerService) {
+  constructor(private homePageControllerService: HomePageControllerService, private route:Router) {
   }
 
   ngOnInit(): void {
@@ -22,4 +25,8 @@ export class HeaderComponent implements OnInit {
       this.header = response.data
     })
   }
+  routeAllPoem(id:number|null|undefined){
+    if (id!==null && id!==undefined){
+    this.route.navigate(['/all-poem'], {queryParams:{data:id, category:'Tüm Şiirler'}})
+  }}
 }

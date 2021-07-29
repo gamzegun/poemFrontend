@@ -1,1 +1,20 @@
-<p>home-settings-modal works!</p>
+<div style="background-color: #00b0ff;color: white; font-size: 10px">
+  <div *ngFor="let message of errorMessages">
+    <p>{{message}}</p>
+  </div>
+</div>
+<input [(ngModel)]="letter1" placeholder="1. Yazıyı giriniz"><br>
+<input [(ngModel)]="letter2" placeholder="2. Yazıyı giriniz"><br>
+<input [(ngModel)]="letter3" placeholder="3. Yazıyı giriniz"><br>
+<input [(ngModel)]="bigLetter" placeholder="Ana Yazıyı giriniz"><br>
+
+<mat-select placeholder="Resim seçiniz" [(ngModel)]="pictureHomePage" >
+  <mat-option *ngFor="let pic of pictures" [value]="pic" >
+    <img src="{{pic}}" width="100px" height="80px"/>
+  </mat-option>
+</mat-select><br>
+<button *ngIf="homeSetting.id===0;else editBtn" class="btn btn-primary" (click)="add()">Ekle</button>
+<ng-template #editBtn>
+  <button class="btn btn-primary" (click)="edit()">Kaydet</button>
+</ng-template>
+<button (click)="close()">Kapat</button>

@@ -1,0 +1,22 @@
+<app-navigation-bar></app-navigation-bar>
+<app-header [navbarType]="true" [bigText]="title"></app-header>
+<div>
+  <p>30.07.2021</p>
+  <p>{{poemDetail}}</p>
+  <p>{{writer}}</p>
+</div>
+<div style="background-color: #00b0ff;color: white; font-size: 10px">
+  <div *ngFor="let message of errorMessages">
+    <p>{{message}}</p>
+  </div>
+</div>
+<input type="text" [(ngModel)]="newComment" placeholder="Yorum yazınız..."/>
+<input type="text" [(ngModel)]="interpreter" placeholder="İsim giriniz..."/>
+<button mat-raised-button (click)="doComment()">Gönder</button>
+<div style="border: solid 1px purple">
+  <div *ngFor="let comment of comments">
+    <p style="background-color: lightgrey; font-size: 12px">{{comment.comment}}</p>
+    <p style="background-color: lightgrey; font-size: 12px">{{comment.interpreter}}</p>
+    <p style="background-color: lightgrey; font-size: 12px">{{comment.date}}</p>
+  </div>
+</div>
