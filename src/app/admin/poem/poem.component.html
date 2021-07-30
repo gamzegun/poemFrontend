@@ -1,102 +1,19 @@
-<!-- Team Section -->
-<!--<section id="team" class="bg-light-gray">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-heading">Our Amazing Team</h2>
-        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-4">
-        <div class="team-member">
-          <img src="http://www.mycatspace.com/wp-content/uploads/2013/08/adopting-a-cat.jpg" class="img-responsive img-circle" alt="">
-          <h4>Kay Garland</h4>
-          <p class="text-muted">Lead Designer</p>
-          <ul class="list-inline social-buttons">
-            <li><a href="#"><i class="fa fa-twitter"></i></a>
-            </li>
-            <li><a href="#"><i class="fa fa-facebook"></i></a>
-            </li>
-            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="team-member">
-          <img src="http://www.mycatspace.com/wp-content/uploads/2013/08/adopting-a-cat.jpg" class="img-responsive img-circle" alt="">
-          <h4>Larry Parker</h4>
-          <p class="text-muted">Lead Marketer</p>
-          <ul class="list-inline social-buttons">
-            <li><a href="#"><i class="fa fa-twitter"></i></a>
-            </li>
-            <li><a href="#"><i class="fa fa-facebook"></i></a>
-            </li>
-            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="team-member">
-          <img src="http://www.mycatspace.com/wp-content/uploads/2013/08/adopting-a-cat.jpg" class="img-responsive img-circle" alt="">
-          <h4>Diana Pertersen</h4>
-          <p class="text-muted">Lead Developer</p>
-          <ul class="list-inline social-buttons">
-            <li><a href="#"><i class="fa fa-twitter"></i></a>
-            </li>
-            <li><a href="#"><i class="fa fa-facebook"></i></a>
-            </li>
-            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 text-center">
-        <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-      </div>
-    </div>
+<app-navbar-admin [poemName]="title"></app-navbar-admin>
+<p>30.07.2021</p>
+<p>{{poemDetail}}</p>
+<p>{{writer}}</p>
+<div style="background-color: #00b0ff;color: white; font-size: 10px">
+  <div *ngFor="let message of errorMessages">
+    <p>{{message}}</p>
   </div>
-</section>-->
-<!--<div style="text-align: center;">
-  <div style="width: 500px; margin: 200px auto;">
-    <input #title  placeholder="poem name"><br>
-    <input #writer placeholder="author name"><br>
-    <textarea rows="20" cols="50" #poem placeholder="Şiiri yazınız...">
-  </textarea><br>
-    <select #category ><option *ngFor="let category of categoryList" [selected]="category==true" [value]="category">{{category}}</option></select>
-    <button type="button" class="btn btn-primary" (click)="addPoem(title.value, writer.value,poem.value)">Şiir Ekle</button></div>
-</div>-->
-<!--<div></div>
-<body class="body5" style="margin-top: 120px" >
-<div style="text-align: center;">
-  <div style="width: 500px; margin: 20px auto;">
-    <input #title  placeholder="Şiir adı" style="border-style: none;background-color: transparent; border-bottom-style: ridge"><br>
-    <input #writer placeholder="Yazar adı" style="border-style: none;background-color: transparent; border-bottom-style: ridge"><br>
-    <textarea rows="20" cols="50" #poem id="poemW" placeholder="Şiiri yazınız..." style="border-style: none;background-color: transparent"></textarea><br>
-<button type="menu" class="menu" (click)="addPoem(title.value, writer.value,poem.value)">Şiir Ekle</button></div>
-  <button type="menu" class="menu" style="margin-right: 316px;" (click)="changed()">Geri dön</button>
-
 </div>
-</body>-->
-
-<body translate="no" >
-<link href="https://fonts.googleapis.com/css?family=Playfair+Display|Playfair+Display+SC" rel="stylesheet">
-
-<div id="main" >
-  <div class="card" ></div>
-  <div class="img"></div>
-  <div class="block"></div>
-  <div class="para">
-
-    <input placeholder="Şiir adı" style="border-style: none;background-color: transparent; border-bottom-style: ridge; font-size: large "><br>
-    <input placeholder="Yazar adı" style="border-style: none;background-color: transparent; border-bottom-style: ridge; font-size: large"><br>
-    <textarea rows="20" cols="50" #poem id="poemW" placeholder="Şiiri yazınız..." style="border-style: none;background-color: transparent;font-size: large;margin-left: 113px"></textarea><br>
-    <button type="menu" class="menu" style="font-size: initial; border-radius: 50%; padding: 11px; background: #c77b219e" (click)="changed()">Geri dön</button>
-    <button type="menu" class="menu" style="margin-left: 252px; font-size: initial; border-radius: 50%; padding: 11px; background: #c77b219e"  (click)="addPoem()">Şiir Ekle</button>
-    </div>
+<input type="text" [(ngModel)]="newComment" placeholder="Yorum yazınız..."/>
+<input type="text" [(ngModel)]="interpreter" placeholder="İsim giriniz..."/>
+<button mat-raised-button (click)="doComment()">Gönder</button>
+<div style="border: solid 1px purple">
+  <div *ngFor="let comment of comments">
+    <p style="background-color: lightgrey; font-size: 12px">{{comment.comment}}</p>
+    <p style="background-color: lightgrey; font-size: 12px">{{comment.interpreter}}</p>
+    <p style="background-color: lightgrey; font-size: 12px">{{comment.date}}</p>
   </div>
-</body>
+</div>

@@ -19,7 +19,7 @@ export class CategoryComponent implements OnInit {
 
   constructor(public matDialog: MatDialog,
               private categoryControllerService: CategoryControllerService,
-              private poemControllerService: PoemControllerService, private route:Router) {
+              private route:Router) {
   }
 
 
@@ -35,6 +35,6 @@ export class CategoryComponent implements OnInit {
   }
   routeAllPoem(id:number|null|undefined, categoryName:string|null|undefined){
     if (id!==null && id!==undefined && categoryName!==null && categoryName!==undefined){
-      this.route.navigate(['/all-poem'], {queryParams:{data:id, category:categoryName}})
+      this.route.navigate(['/all-poem'], {queryParams:{data:id, category:categoryName,status:2}})
     }}
 }

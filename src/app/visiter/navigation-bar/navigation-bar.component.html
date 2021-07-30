@@ -11,7 +11,12 @@
       <img src="../../../assets/logo.PNG" style="width: 25%;">
     </div>
 
+    <div >
+      <input *ngIf="searchBar"  class="position" [(ngModel)]="searchText" placeholder="Ara"/>
 
+
+    </div>
+    <img *ngIf="searchBar" (click)="search()" class="icon" src="../../../assets/search%20(1).svg">
     <a [routerLink]="['/login-page']" class="btn btn-info text-center" id="button" style="cursor: pointer" >Giriş Yap
     </a>
     <!-- /.navbar-collapse -->

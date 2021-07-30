@@ -29,3 +29,9 @@ box-shadow: 24px 23px 93px -25px #423a3a;
   background-color: red;
   cursor: pointer;
 }
+
+.navbar-title{
+  text-align: center;
+  margin-top: 0%;
+  color: white;
+}

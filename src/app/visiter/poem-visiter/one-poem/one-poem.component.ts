@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {CommentControllerService, CommentsDTO, Poem, PoemControllerService} from "../../../../swagger-api";
 import Swal from "sweetalert2";
@@ -19,7 +19,6 @@ export class OnePoemComponent implements OnInit {
   poem: Poem | undefined = {id: 0, poemDetail: '', pictureLink: '', title: '', categoryId: 0, userId: 0, writer: ''};
   comments:CommentsDTO[]=[];
   errorMessages:string[]=[];
-
   constructor(private poemControllerService: PoemControllerService, private route: ActivatedRoute,
               private commentControllerService: CommentControllerService) {
   }
@@ -33,7 +32,7 @@ export class OnePoemComponent implements OnInit {
   }
 
   getPoem() {
-    this.poemControllerService.getById(this.poemId).subscribe(response => {
+    this.poemControllerService.getById1(this.poemId).subscribe(response => {
       this.poem = response.data
       this.title = response.data.title
       this.poemDetail = response.data.poemDetail

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {HomeSettingsModalComponent} from "../home-settings-modal/home-settings-modal.component";
 
@@ -8,6 +8,7 @@ import {HomeSettingsModalComponent} from "../home-settings-modal/home-settings-m
   styleUrls: ['./navbar-admin.component.css']
 })
 export class NavbarAdminComponent implements OnInit {
+    @Input() poemName:string|undefined='';
   constructor(public matDialog: MatDialog) { }
 
   ngOnInit(): void {

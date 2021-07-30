@@ -55,6 +55,8 @@ export class CategoryAdminComponent implements OnInit {
         this.getCategories();
       }
     });
-
+  }
+  getCategoryPoem(id:number|undefined){
+    this.route.navigate(['/poem-admin'], {queryParams:{data:id, status:3}})
   }
 }

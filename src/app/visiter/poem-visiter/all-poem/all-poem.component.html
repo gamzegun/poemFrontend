@@ -1,12 +1,16 @@
-<app-navigation-bar></app-navigation-bar>
+<app-navigation-bar [searchBar]="false" ></app-navigation-bar>
 <app-header [navbarType]="true" [bigText]="categoryName"></app-header>
+<div>
+  <input class="position" [(ngModel)]="searchText" placeholder="Ara"/>
+</div>
+<div><img (click)="getPoemBySearch()" width="2%" src="assets/search%20(1).svg"></div>
 <div class="all-view">
   <div class="half-circle"></div>
   <div class="line-full"><span class="view-content-title">Şiirler</span></div>
   <section class="poem-section">
 <ul id="categories" class="clr">
   <li class="pusher"></li>
-  <li  *ngFor="let poem of poemData">
+  <li (click)="showPoem(poem.id)" *ngFor="let poem of poemData">
     <div>
       <img [src]="poem.pictureLink" alt=""/>
       <h1>{{poem.title}}</h1>

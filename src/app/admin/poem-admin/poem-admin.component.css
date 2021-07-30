@@ -405,7 +405,15 @@ h3 {
   margin-bottom: 102px;
 }
 
+.icon{
+  width: 1%;
+  margin-left: -25px;
 
+}
+
+.position{
+  margin-inline-start: 35%;
+}
 
 
 

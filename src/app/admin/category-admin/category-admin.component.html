@@ -4,7 +4,7 @@
   <div class="add-button" (click)="addCategory()">+</div>
   <section class="section">
     <div class="grid">
-      <div class="item item--medium" [ngStyle]="{'background-image':'url('+category.pictureLink+')'}" *ngFor="let category of categoryData" >
+      <div class="item item--medium" (click)="getCategoryPoem(category.id)" [ngStyle]="{'background-image':'url('+category.pictureLink+')'}" *ngFor="let category of categoryData" >
         <div class="row active-with-click" >
           <article [ngClass]="materialCardClass">
             <span class="h3-before">

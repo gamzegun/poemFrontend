@@ -1,6 +1,13 @@
 import {Component, OnInit, NgModule} from '@angular/core';
-import {Router} from "@angular/router";
-import {CategoryControllerService, Poem, PoemControllerService} from "../../../swagger-api";
+import {ActivatedRoute, Router} from "@angular/router";
+import {
+  CategoryControllerService,
+  CommentControllerService,
+  CommentsDTO,
+  Poem,
+  PoemControllerService
+} from "../../../swagger-api";
+import Swal from "sweetalert2";
 
 
 @Component({
@@ -9,76 +16,65 @@ import {CategoryControllerService, Poem, PoemControllerService} from "../../../s
   styleUrls: ['./poem.component.css']
 })
 export class PoemComponent implements OnInit {
-  public categoryData = [];
-  changedStatues = false;
-  status = true;
-  title: string = "";
-  public writer: string = "";
-  public poemDetail: string = "";
-  public categoryId: number = 0;
-  // @ts-ignore
-  public id: number;
-
-
-  constructor(private poemControllerService: PoemControllerService,
-              private categoryControllerService: CategoryControllerService, private router: Router) {
+  poemId: number = 0;
+  title: string | undefined = '';
+  newComment: string | undefined = '';
+  interpreter: string | undefined = '';
+  poemDetail: string | undefined = '';
+  writer: string | undefined = '';
+  poem: Poem | undefined = {id: 0, poemDetail: '', pictureLink: '', title: '', categoryId: 0, userId: 0, writer: ''};
+  comments:CommentsDTO[]=[];
+  errorMessages:string[]=[];
+  constructor(private poemControllerService: PoemControllerService, private route: ActivatedRoute,
+              private commentControllerService: CommentControllerService) {
   }
 
-  ngOnInit() {
-    this.getAllCategories()
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.poemId = params.data
+    })
+    this.getPoem()
+    this.getComments()
   }
 
-  addPoem() {
-    let data: Poem = {
-      title: this.title,
-      writer: this.writer,
-      categoryId: this.categoryId,
-      poemDetail: this.poemDetail,
-      date: new Date(),
-      userId: 1
-    }
-    this.poemControllerService.add2(data).subscribe(response => {
-      if (response.data === 200) {
+  getPoem() {
+    this.poemControllerService.getById1(this.poemId).subscribe(response => {
+      this.poem = response.data
+      this.title = response.data.title
+      this.poemDetail = response.data.poemDetail
+      this.writer = response.data.writer
 
-      } else {
+    })
+  }
 
+  getComments() {
+    this.commentControllerService.getAll1(this.poemId).subscribe(response=>{
+      this.comments = response.data.reverse()
+    })
+  }
+  doComment() {
+    if (this.validators()){
+      let data: CommentsDTO={
+        poemId: this.poemId,
+        comment: this.newComment,
+        interpreter: this.interpreter
       }
-    })
-  }
+      this.commentControllerService.doComment(data).subscribe(response => {
+        if (response.data===200){
+          Swal.fire('Başarılı' , 'Yorum yapıldı!', 'success')
+          this.getComments()
+        }
+      })
+    }}
 
-  updatePoem() {
-    let data: Poem = {
-      id: this.id,
-      title: this.title,
-      writer: this.writer,
-      categoryId: this.categoryId,
-      poemDetail: this.poemDetail,
-      date: new Date(),
-      userId: 1
+  validators() {
+    this.errorMessages = [];
+    if (this.newComment === null || this.newComment === undefined || this.newComment === "") {
+      this.errorMessages.push("Yorum giriniz")
     }
-    this.poemControllerService.update2(data).subscribe(response => {
-      if (response.data === 200) {
-
-      } else {
-
-      }
-    })
-  }
-
-  getAllCategories() {
-    this.categoryControllerService.getAll().subscribe(response => {
-      this.categoryData = response.data;
-    })
-  }
-
-  changed() {
-    if (!this.changedStatues) {
-      confirm('Değişiklikleri kaydetmek istiyor musunuz?')
-    } else {
-      this.router.navigate(['/user-page'])
+    if (this.interpreter === null || this.interpreter === undefined || this.interpreter === "") {
+      this.errorMessages.push("İsim giriniz")
     }
-    if (!this.status) {
-      this.router.navigate(['/user-page'])
-    }
+    return this.errorMessages.length === 0;
   }
 }

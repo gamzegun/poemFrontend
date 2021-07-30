@@ -76,7 +76,7 @@ export class AddComponent implements OnInit {
 
   getDetail(){
     if (this.data!==null && this.data!==undefined){
-    this.poemControllerService.getById(this.data).subscribe(response => {
+    this.poemControllerService.getById1(this.data).subscribe(response => {
       if (response.code === 200) {
         this.poemData=response.data;
 

@@ -27,6 +27,6 @@ export class HeaderComponent implements OnInit {
   }
   routeAllPoem(id:number|null|undefined){
     if (id!==null && id!==undefined){
-    this.route.navigate(['/all-poem'], {queryParams:{data:id, category:'Tüm Şiirler'}})
+    this.route.navigate(['/all-poem'], {queryParams:{data:id, category:'Tüm Şiirler',status:1}})
   }}
 }

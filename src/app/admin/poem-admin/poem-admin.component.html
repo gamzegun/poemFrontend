@@ -1,14 +1,19 @@
-<app-navbar-admin *ngIf="allPoemsStatus">
-</app-navbar-admin>
+<app-navbar-admin *ngIf="allPoemsStatus==1 || allPoemsStatus==3"></app-navbar-admin>
+<div>
+  <input class="position" [(ngModel)]="searchText" placeholder="Ara"/>
+</div>
+<div><img (click)="getPoemBySearch()" width="2%" src="assets/search%20(1).svg"></div>
 <div class="all-view">
   <div class="half-circle"></div>
-  <div class="half-circle view-all-circle" *ngIf="!allPoemsStatus"></div>
-  <div class="line-full"><span class="view-content-title">Şiirler</span></div>
+  <div class="half-circle view-all-circle" *ngIf="allPoemsStatus==2"></div>
+  <div class="line-full" ><span class="view-content-title">Şiirler</span></div>
   <div class="add-button" (click)="addPoem()" >+</div>
-  <div class="add-button view-all" *ngIf="!allPoemsStatus" (click)="viewAllPoems()"><img class="icon-v-all" src="assets/search.svg"/></div>
+  <div class="add-button view-all" *ngIf="allPoemsStatus==2" (click)="viewAllPoems()"><img class="icon-v-all" src="assets/search.svg"/></div>
   <section class="section">
     <div class="grid">
-      <div class="item item--medium" [ngStyle]="{'background-image':'url('+poem.pictureLink+')'}" *ngFor="let poem of poemData" (mouseleave)="poemId=0" (mouseover)="poemId=poem.id">
+      <div class="item item--medium" (click)="readPoem(poem.id)"
+           [ngStyle]="{'background-image':'url('+poem.pictureLink+')'}" *ngFor="let poem of poemData"
+           (mouseleave)="poemId=0" (mouseover)="poemId=poem.id">
         <div class="row active-with-click" *ngIf="poem.id === poemId">
           <article [ngClass]="classControl(poem.id)">
             <h2>

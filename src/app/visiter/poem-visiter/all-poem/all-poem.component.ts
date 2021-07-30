@@ -12,21 +12,26 @@ export class AllPoemComponent implements OnInit {
   poemId: number | undefined = 0;
   categoryId:number=0;
   categoryName:string='';
+  searchText:string|undefined='';
+  poem:Poem[]=[];
+  status:number|undefined=1;//1:all 2:category 3:search
 
-  constructor(private poemControllerService:PoemControllerService, private route:ActivatedRoute) { }
+  constructor(private poemControllerService:PoemControllerService, private route:ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
         this.categoryId=params.data
         this.categoryName = params.category
+        this.poem=params.poemData;
+        this.searchText=params.text;
+        this.status=params.status;
       })
-    if (this.categoryId==-1){
+    if (this.status==1){
       this.getPoem()
-
-    } else {
+    } else if (this.status==2) {
       this.getPoemByCategory(this.categoryId)
-
-
+    } else if (this.status==3) {
+      this.getPoemBySearch()
     }
   }
   getPoem(){
@@ -41,5 +46,20 @@ export class AllPoemComponent implements OnInit {
         this.poemData=response.data
       })
     }}
+
+  getPoemBySearch(){
+    if (this.searchText!==undefined){
+      this.poemControllerService.getPoemsBySearchText(this.searchText).subscribe(response=>{
+        this.poemData=response.data
+      })
+    }}
+  showPoem(id:number|undefined){
+    this.router.navigate(['/one-poem'],{queryParams:{data:id}})
+  }
+  searchAllPoem(){
+    this.poemControllerService.getAllByUserId(2).subscribe(response=>{
+      this.poem=response.data
+  })
+}
 
 }
