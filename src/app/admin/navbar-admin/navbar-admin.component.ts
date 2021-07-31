@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {HomeSettingsModalComponent} from "../home-settings-modal/home-settings-modal.component";
+import {environment} from "../../../environments/environment";
+import {removeToken} from "../../helper/util";
 
 @Component({
   selector: 'app-navbar-admin',
@@ -16,6 +18,11 @@ export class NavbarAdminComponent implements OnInit {
 
   openSettingModal() {
     this.matDialog.open(HomeSettingsModalComponent)
+  }
+
+  logOut(){
+    window.location.href=environment.adminUrl+"/login-page"
+    removeToken()
   }
 
 }

@@ -59,56 +59,18 @@ export class CategoryControllerService {
     /**
      * 
      * 
-     * @param id 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public _delete(id: number, observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
-    public _delete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
-    public _delete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
-    public _delete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-
-        if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling _delete.');
-        }
-
-        let headers = this.defaultHeaders;
-
-        // to determine the Accept header
-        let httpHeaderAccepts: string[] = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-        ];
-
-        return this.httpClient.request<ResponseModel>('get',`${this.basePath}/rest/category/delete/${encodeURIComponent(String(id))}`,
-            {
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * 
-     * 
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public add(body?: Category, observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
-    public add(body?: Category, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
-    public add(body?: Category, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
-    public add(body?: Category, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public add3(body: Category, observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
+    public add3(body: Category, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
+    public add3(body: Category, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
+    public add3(body: Category, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling add3.');
+        }
 
         let headers = this.defaultHeaders;
 
@@ -144,13 +106,54 @@ export class CategoryControllerService {
     /**
      * 
      * 
+     * @param id 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getAll(observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
-    public getAll(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
-    public getAll(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
-    public getAll(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public delete1(id: number, observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
+    public delete1(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
+    public delete1(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
+    public delete1(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling delete1.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<ResponseModel>('get',`${this.basePath}/rest/category/delete/${encodeURIComponent(String(id))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public getAll2(observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
+    public getAll2(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
+    public getAll2(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
+    public getAll2(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         let headers = this.defaultHeaders;
 
@@ -180,17 +183,58 @@ export class CategoryControllerService {
     /**
      * 
      * 
+     * @param userId 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public getAllByUserId1(userId: number, observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
+    public getAllByUserId1(userId: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
+    public getAllByUserId1(userId: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
+    public getAllByUserId1(userId: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (userId === null || userId === undefined) {
+            throw new Error('Required parameter userId was null or undefined when calling getAllByUserId1.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<ResponseModel>('get',`${this.basePath}/rest/category/getAllByUserId/${encodeURIComponent(String(userId))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
      * @param categoryId 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getById(categoryId: number, observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
-    public getById(categoryId: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
-    public getById(categoryId: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
-    public getById(categoryId: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public getById1(categoryId: number, observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
+    public getById1(categoryId: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
+    public getById1(categoryId: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
+    public getById1(categoryId: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (categoryId === null || categoryId === undefined) {
-            throw new Error('Required parameter categoryId was null or undefined when calling getById.');
+            throw new Error('Required parameter categoryId was null or undefined when calling getById1.');
         }
 
         let headers = this.defaultHeaders;
@@ -225,11 +269,14 @@ export class CategoryControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public update(body?: Category, observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
-    public update(body?: Category, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
-    public update(body?: Category, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
-    public update(body?: Category, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public update2(body: Category, observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
+    public update2(body: Category, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
+    public update2(body: Category, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
+    public update2(body: Category, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling update2.');
+        }
 
         let headers = this.defaultHeaders;
 

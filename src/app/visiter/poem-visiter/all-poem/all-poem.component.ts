@@ -35,7 +35,7 @@ export class AllPoemComponent implements OnInit {
     }
   }
   getPoem(){
-    this.poemControllerService.getAllByUserId(2).subscribe(response=>{
+    this.poemControllerService.getAll().subscribe(response=>{
       this.poemData=response.data
     })
   }
@@ -56,10 +56,5 @@ export class AllPoemComponent implements OnInit {
   showPoem(id:number|undefined){
     this.router.navigate(['/one-poem'],{queryParams:{data:id}})
   }
-  searchAllPoem(){
-    this.poemControllerService.getAllByUserId(2).subscribe(response=>{
-      this.poem=response.data
-  })
-}
 
 }

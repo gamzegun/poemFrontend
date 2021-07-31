@@ -29,7 +29,7 @@ export class CategoryComponent implements OnInit {
 
 
   getCategories() {
-    this.categoryControllerService.getAll().subscribe(response => {
+    this.categoryControllerService.getAll2().subscribe(response => {
       this.categoryData = response.data
     })
   }

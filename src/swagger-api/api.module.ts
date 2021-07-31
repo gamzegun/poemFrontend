@@ -8,6 +8,7 @@ import { CommentControllerService } from './api/commentController.service';
 import { HomePageControllerService } from './api/homePageController.service';
 import { PoemControllerService } from './api/poemController.service';
 import { UserControllerService } from './api/userController.service';
+import {AuthControllerService} from "./api/authController.service";
 
 @NgModule({
   imports:      [],
@@ -18,7 +19,8 @@ import { UserControllerService } from './api/userController.service';
     CommentControllerService,
     HomePageControllerService,
     PoemControllerService,
-    UserControllerService ]
+    UserControllerService,
+    AuthControllerService]
 })
 export class ApiModule {
     public static forRoot(configurationFactory: () => Configuration) {

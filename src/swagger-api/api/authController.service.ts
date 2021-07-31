@@ -17,15 +17,15 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
 
+import { Login } from '../model/login';
 import { ResponseModel } from '../model/responseModel';
-import { User } from '../model/user';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
 @Injectable()
-export class UserControllerService {
+export class AuthControllerService {
 
     protected basePath = 'http://localhost:8080';
     public defaultHeaders = new HttpHeaders();
@@ -63,13 +63,13 @@ export class UserControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public add(body: User, observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
-    public add(body: User, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
-    public add(body: User, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
-    public add(body: User, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public login(body: Login, observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
+    public login(body: Login, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
+    public login(body: Login, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
+    public login(body: Login, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (body === null || body === undefined) {
-            throw new Error('Required parameter body was null or undefined when calling add.');
+            throw new Error('Required parameter body was null or undefined when calling login.');
         }
 
         let headers = this.defaultHeaders;
@@ -92,7 +92,7 @@ export class UserControllerService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ResponseModel>('post',`${this.basePath}/restful/user/add`,
+        return this.httpClient.request<ResponseModel>('post',`${this.basePath}/login/`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

@@ -4,6 +4,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
 import {AddCategoryComponent} from "./add/add.component";
 import {DeleteCategoryComponent} from "./delete-category/delete-category.component";
+import {getUserId} from "../../helper/util";
 
 @Component({
   selector: 'app-category-admin',
@@ -25,7 +26,7 @@ export class CategoryAdminComponent implements OnInit {
 
 
   getCategories() {
-    this.categoryControllerService.getAll().subscribe(response => {
+    this.categoryControllerService.getAllByUserId1(getUserId()).subscribe(response => {
       this.categoryData = response.data
     })
   }
@@ -57,6 +58,6 @@ export class CategoryAdminComponent implements OnInit {
     });
   }
   getCategoryPoem(id:number|undefined){
-    this.route.navigate(['/poem-admin'], {queryParams:{data:id, status:3}})
+    this.route.navigate(['/admin/poem-admin'], {queryParams:{data:id, status:3}})
   }
 }

@@ -16,7 +16,7 @@ export class DeleteComponent implements OnInit {
   }
   deletePoem(){
     if(this.data!==undefined)
-      this.poemControllerService.delete1(this.data).subscribe(response=>{
+      this.poemControllerService._delete(this.data).subscribe(response=>{
         if (response.data === 200){
           this.dialogRef.close(true)
         }

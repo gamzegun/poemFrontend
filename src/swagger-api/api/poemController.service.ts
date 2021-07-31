@@ -59,15 +59,59 @@ export class PoemControllerService {
     /**
      * 
      * 
+     * @param id 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public _delete(id: number, observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
+    public _delete(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
+    public _delete(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
+    public _delete(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling _delete.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<ResponseModel>('get',`${this.basePath}/rest/poem/delete/${encodeURIComponent(String(id))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public add2(body?: Poem, observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
-    public add2(body?: Poem, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
-    public add2(body?: Poem, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
-    public add2(body?: Poem, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public add1(body: Poem, observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
+    public add1(body: Poem, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
+    public add1(body: Poem, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
+    public add1(body: Poem, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling add1.');
+        }
 
         let headers = this.defaultHeaders;
 
@@ -103,18 +147,13 @@ export class PoemControllerService {
     /**
      * 
      * 
-     * @param id 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public delete1(id: number, observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
-    public delete1(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
-    public delete1(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
-    public delete1(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-
-        if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling delete1.');
-        }
+    public getAll(observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
+    public getAll(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
+    public getAll(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
+    public getAll(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         let headers = this.defaultHeaders;
 
@@ -131,7 +170,43 @@ export class PoemControllerService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<ResponseModel>('get',`${this.basePath}/rest/poem/delete/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<ResponseModel>('get',`${this.basePath}/rest/poem/getAll`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public getAllByCount(observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
+    public getAllByCount(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
+    public getAllByCount(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
+    public getAllByCount(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<ResponseModel>('get',`${this.basePath}/rest/poem/getAllByCount`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -271,13 +346,13 @@ export class PoemControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getById1(id: number, observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
-    public getById1(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
-    public getById1(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
-    public getById1(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public getById(id: number, observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
+    public getById(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
+    public getById(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
+    public getById(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling getById1.');
+            throw new Error('Required parameter id was null or undefined when calling getById.');
         }
 
         let headers = this.defaultHeaders;
@@ -445,11 +520,14 @@ export class PoemControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public update2(body?: Poem, observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
-    public update2(body?: Poem, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
-    public update2(body?: Poem, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
-    public update2(body?: Poem, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public update(body: Poem, observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
+    public update(body: Poem, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
+    public update(body: Poem, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
+    public update(body: Poem, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling update.');
+        }
 
         let headers = this.defaultHeaders;
 

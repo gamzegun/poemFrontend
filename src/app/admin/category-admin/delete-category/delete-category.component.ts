@@ -17,7 +17,7 @@ export class DeleteCategoryComponent implements OnInit {
   }
   deleteCategory(){
     if(this.data!==undefined)
-      this.categoryControllerService._delete(this.data).subscribe(response=>{
+      this.categoryControllerService.delete1(this.data).subscribe(response=>{
         if (response.data === 200){
           this.dialogRef.close(true)
         }

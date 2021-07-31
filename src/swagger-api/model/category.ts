@@ -15,4 +15,5 @@ export interface Category {
     pictureLink?: string;
     categoryName?: string;
     description?: string;
+    userId?: number;
 }

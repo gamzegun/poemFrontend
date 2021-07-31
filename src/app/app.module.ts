@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HeaderComponent} from "./visiter/header/header.component";
-import {UserPageComponent} from "./admin/user-page/user-page.component";
 import {LetterComponent} from "./visiter/letter/letter.component";
 import {LoginPageComponent} from "./admin/login-page/login-page.component";
 import {NavigationBarComponent} from "./visiter/navigation-bar/navigation-bar.component";
@@ -35,6 +34,7 @@ import { DeleteCategoryComponent } from './admin/category-admin/delete-category/
 import { PoemVisiterComponent } from './visiter/poem-visiter/poem-visiter.component';
 import { OnePoemComponent } from './visiter/poem-visiter/one-poem/one-poem.component';
 import { AllPoemComponent } from './visiter/poem-visiter/all-poem/all-poem.component';
+import {ServiceInterceptor} from "./_service.interceptor";
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +45,6 @@ import { AllPoemComponent } from './visiter/poem-visiter/all-poem/all-poem.compo
     CategoryComponent,
     PoemComponent,
     LoginPageComponent,
-    UserPageComponent,
     HomeAdminComponent,
     NavbarAdminComponent,
     PoemAdminComponent,
@@ -76,7 +75,13 @@ import { AllPoemComponent } from './visiter/poem-visiter/all-poem/all-poem.compo
     MatSelectModule,
     MatOptionModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ServiceInterceptor,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent],
   entryComponents: [ViewCommentComponent]
 })

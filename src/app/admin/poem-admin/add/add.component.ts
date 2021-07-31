@@ -2,6 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {Category, CategoryControllerService, Poem, PoemControllerService} from "../../../../swagger-api";
 import Swal from 'sweetalert2';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {getName, getUserId} from "../../../helper/util";
 
 @Component({
   selector: 'app-add',
@@ -34,12 +35,12 @@ export class AddComponent implements OnInit {
       let data: Poem = {
         poemDetail: this.poemDetail,
         title: this.poemName,
-        writer: this.writer,
+        writer: getName(),
         categoryId:this.selectedValue,
-        userId:2
+        userId:getUserId()
       }
 
-      this.poemControllerService.add2(data).subscribe(response => {
+      this.poemControllerService.add1(data).subscribe(response => {
 
         if (response.data === 200) {
           Swal.fire("Başarılı", "Şiir eklendi!", "success");
@@ -57,12 +58,12 @@ export class AddComponent implements OnInit {
         id: this.data,
         poemDetail: this.poemDetail,
         title: this.poemName,
-        writer: this.writer,
+        writer: getName(),
         categoryId:this.selectedValue,
-        userId:2
+        userId:getUserId()
       }
 
-      this.poemControllerService.update2(data).subscribe(response => {
+      this.poemControllerService.update(data).subscribe(response => {
 
         if (response.data === 200) {
           Swal.fire("Başarılı", "Şiir eklendi!", "success");
@@ -76,7 +77,7 @@ export class AddComponent implements OnInit {
 
   getDetail(){
     if (this.data!==null && this.data!==undefined){
-    this.poemControllerService.getById1(this.data).subscribe(response => {
+    this.poemControllerService.getById(this.data).subscribe(response => {
       if (response.code === 200) {
         this.poemData=response.data;
 
@@ -91,7 +92,7 @@ export class AddComponent implements OnInit {
   }}
 
   getCategories() {
-    this.categoryControllerService.getAll().subscribe(response => {
+    this.categoryControllerService.getAllByUserId1(getUserId()).subscribe(response => {
       this.categoryData = response.data
     })
 

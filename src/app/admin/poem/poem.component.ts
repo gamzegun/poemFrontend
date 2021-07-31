@@ -38,7 +38,7 @@ export class PoemComponent implements OnInit {
   }
 
   getPoem() {
-    this.poemControllerService.getById1(this.poemId).subscribe(response => {
+    this.poemControllerService.getById(this.poemId).subscribe(response => {
       this.poem = response.data
       this.title = response.data.title
       this.poemDetail = response.data.poemDetail

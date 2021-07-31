@@ -2,6 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {Category, CategoryControllerService} from "../../../../swagger-api";
 import Swal from 'sweetalert2';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {getUserId} from "../../../helper/util";
 
 @Component({
   selector: 'app-add',
@@ -29,10 +30,11 @@ export class AddCategoryComponent implements OnInit {
     let data : Category = {
       pictureLink : this.picture,
       categoryName : this.categoryName,
-      description : this.categoryDescription
+      description : this.categoryDescription,
+      userId: getUserId()
     }
     console.log(this.picture)
-    this.categoryControllerService.add(data).subscribe(response=>{
+    this.categoryControllerService.add3(data).subscribe(response=>{
       if (response.data === 200) {
         Swal.fire("Başarılı", "kategori eklendi!", "success");
         this.dialogRef.close(true);
@@ -47,9 +49,10 @@ export class AddCategoryComponent implements OnInit {
       id:this.data,
       pictureLink : this.picture,
       categoryName : this.categoryName,
-      description : this.categoryDescription
+      description : this.categoryDescription,
+      userId: getUserId()
     }
-    this.categoryControllerService.update(data).subscribe(response=>{
+    this.categoryControllerService.update2(data).subscribe(response=>{
       if (response.data === 200) {
         Swal.fire("Başarılı", "kategori güncellendi!", "success");
         this.dialogRef.close(true);
@@ -60,7 +63,7 @@ export class AddCategoryComponent implements OnInit {
   }}
   getDetail(){
     if(this.data!== null && this.data!==undefined){
-    this.categoryControllerService.getById(this.data).subscribe(response=>{
+    this.categoryControllerService.getById1(this.data).subscribe(response=>{
       if (response.code ===200){
         this.categoryName=response.data[0].categoryName;
         this.categoryDescription=response.data[0].description;

@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {AddComponent} from "./add/add.component";
 import {DeleteComponent} from "./delete/delete.component";
 import {ViewCommentComponent} from "./view-comment/view-comment.component";
+import {getUserId} from "../../helper/util";
 
 @Component({
   selector: 'app-poem-admin',
@@ -57,18 +58,18 @@ export class PoemAdminComponent implements OnInit {
   }
 
   getCategories() {
-    this.categoryControllerService.getAll().subscribe(response => {
+    this.categoryControllerService.getAllByUserId1(getUserId()).subscribe(response => {
       this.categoryData = response.data
     })
   }
 
   getPoems() {
-    this.poemControllerService.getAllByUserIdAndCount(2).subscribe(response => {
+    this.poemControllerService.getAllByUserIdAndCount(getUserId()).subscribe(response => {
       this.poemData = response.data
     })
   }
   getAllPoems() {
-    this.poemControllerService.getAllByUserId(2).subscribe(response => {
+    this.poemControllerService.getAllByUserId(getUserId()).subscribe(response => {
       this.poemData = response.data
     })
   }
@@ -95,7 +96,7 @@ export class PoemAdminComponent implements OnInit {
   }
 
   viewAllPoems(){
-    this.route.navigate(['/poem-admin'])
+    this.route.navigate(['/admin/poem-admin'])
   }
 
   openDeleteModal(id:number | undefined){
@@ -120,10 +121,10 @@ export class PoemAdminComponent implements OnInit {
     this.matDialog.open(ViewCommentComponent, { data:id})
   }
   readPoem(id:number|undefined){
-    this.route.navigate(['/poem'],{queryParams:{data:id}})
+    this.route.navigate(['/admin/poem'],{queryParams:{data:id}})
   }
   searchPoemAdmin(){
-    this.poemControllerService.getAllByUserId(2).subscribe(response=>{
+    this.poemControllerService.getAllByUserId(getUserId()).subscribe(response=>{
       this.poemData = response.data
     })
   }
