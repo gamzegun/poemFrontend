@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Poem, PoemControllerService} from "../../../swagger-api";
 
@@ -11,7 +11,9 @@ export class NavigationBarComponent implements OnInit {
   date: any = new Date();
   state = false;
   searchText:string|undefined="";
+  poemData:Poem[]=[];
   @Input() searchBar:boolean=true;
+  @Output() searchMethodOutput= new EventEmitter<any>();
 
   constructor(private poemControllerService:PoemControllerService, private router: Router, private route: ActivatedRoute) {
   }
@@ -21,7 +23,15 @@ export class NavigationBarComponent implements OnInit {
 
   search(){
     if (this.searchText!==''){
-    this.router.navigate(['/all-poem'],{queryParams:{text:this.searchText,status:3}})
+      if (this.searchBar){
+        this.router.navigate(['/poems'],{queryParams:{text:this.searchText,status:4}})
+      }else {
+        this.searchFromPoems()
+      }
     }
+  }
+
+  searchFromPoems(){
+    this.searchMethodOutput.emit(this.searchText)
   }
 }

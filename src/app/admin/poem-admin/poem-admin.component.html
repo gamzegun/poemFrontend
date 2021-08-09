@@ -1,20 +1,35 @@
 <app-navbar-admin *ngIf="allPoemsStatus==1 || allPoemsStatus==3"></app-navbar-admin>
-<div>
-  <input class="position" [(ngModel)]="searchText" placeholder="Ara"/>
-</div>
-<div><img (click)="getPoemBySearch()" width="2%" src="assets/search%20(1).svg"></div>
+
 <div class="all-view">
-  <div class="half-circle"></div>
+  <div class="half-circle">
+    <div class="input-group mb-3 " >
+      <input type="text" class="form-control position" [(ngModel)]="searchText" placeholder="Şiir ara..." aria-label="Şiir ara..." aria-describedby="basic-addon2">
+      <button (click)="getPoemBySearch()" class="btn btn-outline-secondary icon" type="button" ><img  src="../../../assets/search%20(1).svg"></button>
+
+    </div>
+
+
+
+
+    <!-- <input class="position" [(ngModel)]="searchText" placeholder="Ara"/>
+    <img class="icon"  (click)="getPoemBySearch()"src="assets/search%20(1).svg">-->
+  </div>
   <div class="half-circle view-all-circle" *ngIf="allPoemsStatus==2"></div>
   <div class="line-full" ><span class="view-content-title">Şiirler</span></div>
+
   <div class="add-button" (click)="addPoem()" >+</div>
-  <div class="add-button view-all" *ngIf="allPoemsStatus==2" (click)="viewAllPoems()"><img class="icon-v-all" src="assets/search.svg"/></div>
-  <section class="section">
+
+  <div class="add-button view-all" *ngIf="allPoemsStatus==2" (click)="viewAllPoems()"><img class="icon-v-all" src="assets/search.svg"/>
+
+  </div>
+
+
+  <section class="section" [ngStyle]="{'width':poemData.length<5? '23%':''}">
     <div class="grid">
-      <div class="item item--medium" (click)="readPoem(poem.id)"
+      <div class="item item--medium"  (click)="readPoem(poem.id)"
            [ngStyle]="{'background-image':'url('+poem.pictureLink+')'}" *ngFor="let poem of poemData"
            (mouseleave)="poemId=0" (mouseover)="poemId=poem.id">
-        <div class="row active-with-click" *ngIf="poem.id === poemId">
+        <div class="row active-with-click" *ngIf="poem.id === poemId ">
           <article [ngClass]="classControl(poem.id)">
             <h2>
               <span>{{poem.title}}</span>
@@ -41,7 +56,7 @@
           </article>
 
         </div>
-        <div class="row active-with-click" *ngIf="poem.id !== poemId">
+        <div class="row active-with-click" *ngIf="poem.id !== poemId ">
           <article [ngClass]="classControl(poem.id)">
             <h2 class="h2-before">
               <span>{{poem.title}}</span>
@@ -52,16 +67,17 @@
             </h2>
           </article>
         </div>
-        <div class="item__details">
-          <div style="width: 90%">
-            <img class="other-icon" (click)="openCommentModal(poem.id)" src="assets/view.svg"/>
-            <img class="other-icon" (click)="openEditModal(poem.id)" src="assets/edit.svg"/>
-            <img class="other-icon" (click)="openDeleteModal(poem.id)" src="assets/delete.svg"/>
+        <div>
+        <div class="item__details" >
+          <div class="open-modal">
+            <img class="other-icon" (click)="openCommentModal(poem.id,$event)" src="assets/view.svg"/>
+            <img class="other-icon" (click)="openEditModal(poem.id,$event)" src="assets/edit.svg"/>
+            <img class="other-icon" (click)="openDeleteModal(poem.id,$event)" src="assets/delete.svg"/>
 
-          </div>
+          </div></div>
         </div>
       </div>
-
     </div>
   </section>
+
 </div>

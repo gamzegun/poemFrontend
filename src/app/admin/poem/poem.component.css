@@ -1,209 +1,257 @@
-/*body {margin:0;padding:0;}
-canvas{
+p{
+  font-size: 19px;
+}
+
+.p-style{
+  font-size: 1.1em;
+  line-height: 200%;
+  color:#989EA4;
+}
+
+.messagePage {
+
+  border-radius: 4px;
+
+  background-color: #F8F9FA;
+  background-size: 100% 600px;
+  background-repeat: no-repeat;
+  float: left;}
+
+.messageContent {
+  padding: 30px;
+  margin-left: -107px
+}
+
+.media {
+  margin-top: 21px;
+}
+
+.media-heading {
+  color: #000;
+  font-size: .8em;
+
+}
+
+.media-body {
+  font-size: large;
+  padding-left: 125px;
+  padding-top: 9px;
+
+
+
+}
+
+.comment {
+  font-size: .8em;
+  color:#989EA4;
+  line-height: 180%;
+}
+
+.poem-detail{
+  margin: 3%;
+  margin-bottom: 3%;
+  margin-top: 2%;
+  padding: 44px;
+  background-color: aliceblue;
+  font-weight: bold;
+  box-shadow: 0px 8px 28px -7px grey;
+
+}
+
+.container {
+  padding:0;
+  background-color: #FFF;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  height: fit-content;
+  margin-top: 71px;
+  width: 75%;
+
+}
+
+
+.timer {
+  margin-left: 15%;
+  font-family:'Open Sans', sans-serif;
+  font-size: 11px;
+  padding: 3px 8px;
+  color: #BBB;
+  background-color: #FFF;
+  border: 1px solid #E5E5E5;
+  border-radius: 15px;
+}
+
+.chat {
+  width: calc(100% - 85px);
+}
+
+
+.header-chat {
+  background-color: #FFF;
+  height: 90px;
+  box-shadow: 0px 3px 2px rgba(0,0,0,0.100);
+  display:flex;
+  align-items: center;
+}
+
+.chat .header-chat .icon {
+  margin-left: 30px;
+  color:#515151;
+  font-size: 14pt;
+}
+
+.chat .header-chat .name {
+  margin: 0 0 0 20px;
+  text-transform: uppercase;
+  font-family:'Montserrat', sans-serif;
+  font-size: 13pt;
+  color:#515151;
+}
+
+.chat .header-chat .right {
+  position: absolute;
+  right: 40px;
+}
+
+.chat .messages-chat {
+  padding: 25px 35px;
+  margin-left: 6%;
+  overflow: auto;
+  width: 99%;
+  height: 800px;
+}
+
+.chat .messages-chat .message {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #eadddd;
+  padding: 5px;
+}
+
+.chat .messages-chat .message .photo {
+  display: block;
+  width: 45px;
+  height: 45px;
+  background: #E6E7ED;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.chat .messages-chat .text {
+  margin: 0 30px;
+  background-color: #eaeaea;
+  padding: 10px;
+  width: 60%;
+  border-radius: 12px;
+  word-break: break-word;
+}
+
+.text-only {
+  margin-left: 45px;
+}
+
+.time {
+  font-size: 16px;
+  color:#3f51b5a6;
+  margin-bottom:10px;
+  margin-left: 2px;
+}
+
+.response-time {
+  float: right;
+  margin-right: 40px !important;
+}
+
+.response {
+  float: right;
+  margin-right: 0px !important;
+  margin-left:auto; /* flexbox alignment rule */
+}
+
+.response .text {
+  background-color: #e3effd !important;
+}
+
+.footer-chat {
+  width: calc(65% - 66px);
+  height: 80px;
+  display:contents;
+  align-items: center;
   position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-}
-#poem {
-  position: absolute;
-  top: 0px;
-  left:50%;
-  width: 480px;
-  height: auto;
-  margin-left: -240px;
-  font: 1.4em "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  text-shadow: 0.12em 0.12em 0.36em #da6e0e;
-  color:#fff;
-}
-#poem ul {
-  list-style-type: none;
-  margin-left:-36px;
-}
-#poem li {
-  padding-bottom:0.8em;
-  opacity:0.8;
-}
-#poem h3 {
-  margin-right:64px;
-  margin-top:-12px;
-  text-align:right;
-}*/
+  bottom: 0;
+  background-color: transparent;
+  border-top: 2px solid #EEE;
 
-/*h4 {
-  padding-left:140px;
-  font-size:20px;
-}
-.body5 {
-  border:3px solid #f1f1f1;
-  width:550px;
-  border-radius:21px;
-  background-color:#1c85dea3;
-  margin:0 auto;
-  padding: 50px;
-  padding-bottom: 11px;
-}
-.para5 {
-  border-sizing:border-box;
-  width:500px;
-  padding:10px;
-  margin:10px;
-  line-height:150%;
-  border-radius:13px;
-}
-button {
-  background-color:#0526276e;
-  color:white;
-  padding:19px 6px;
-  margin:7px 0;
-  border:none;
-  cursor:pointer;
-  width:18%;
-  border-radius:20px;
-  text-decoration:none;
-  box-shadow: 1px 1px 14px 13px #eeeeee7d;
-}
-button:hover {
-  opacity:0.8
-}
-.menu {
-  float:right;
-  margin-right:12px;
-}*/
-
-
-
-
-
-.menu:hover{background-image:none !important;
-  background-color:#c77b2140 !important;}
-html, body {
-  overflow: hidden;
-  background: #CCB7B0;
-}
-#main {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  z-index: 1;
-  animation: fadeIn 4s ease-in;
 }
 
-.card {
-  height: 550px;
-  width: 900px;
-  background: #FFFFFF;
-}
-.img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-100%) translateY(-50%);
-  height: 550px;
-  width: 450px;
-  background-image: url(https://media.istockphoto.com/photos/antique-office-supplies-and-accessories-used-paper-feather-pen-picture-id501297296?k=6&m=501297296&s=612x612&w=0&h=GKrs-BXYMQ2PlIXS8tKBvgpdS2uOuTQQl8jcETmU81w=
-  );
-  background-size: contain;
-  background-repeat: repeat;
-}
-.headline {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(100%) translateY(-150%);
-  text-align: center;
-  font-family: 'Playfair Display SC', serif;
-}
-.para {
-  position: initial;
-  top: 40%;
-  left: 35%;
-  transform: translateX(29%) translateY(-41%);
-  text-align: center;
-  font-family: Segoe Script;
-  font-size: 20px;
-}
-#dot {
-  position: absolute;
-  height: 100px;
-  width: 200px;
-  top: 50%;
-  left: 49%;
-  transform: translateX(140%) translateY(200%);
-  background-image: url(http://www.appladesign.net/domains/create/documents/dots_266.png);
-  background-size: contain;
-  background-repeat: repeat;
-  z-index: 2;
-}
-#dot:before {
-  content: "";
-  position: absolute;
-  height: 200px;
-  width: 100px;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-850%) translateY(-280%);
-  background-image: url(http://www.appladesign.net/domains/create/documents/dots_266.png);
-  background-size: contain;
-  background-repeat: repeat;
-}
-.article {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(35%) translateY(-510%);
-  text-align: center;
-  font-family: 'Playfair Display SC', serif;
-}
-.article:before {
-  content: "NEXT";
-  position: absolute;
-  height: 200px;
-  width: 100px;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-75%) translateY(240%);
-}
-.article:after {
-  content: "02";
-  position: absolute;
-  height: 200px;
-  width: 100px;
-  top: 50%;
-  left: 50%;
-  transform: translateX(280%) translateY(-5%);
-  font-weight: bold;
-}
-.block {
-  background: grey;
-  opacity: .5;
-  position: absolute;
-  height: 5px;
-  width: 200px;
-  top: 5%;
-  left: 65%;
-}
-.block:before {
-  content: "";
-  background: grey;
-  opacity: .5;
-  position: absolute;
-  height: 5px;
-  width: 80px;
-  top: 500px;
-  left: -145px;
-}
-/* Keyframes */
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+.chat .footer-chat .icon {
+  margin-left: 30px;
+  color:#C0C0C0;
+  font-size: 14pt;
 }
 
+.chat .footer-chat .send {
+  color: #fff;
+  background-color: #4f6ebd;
+  padding: 8px;
+  border-radius: 11px;
+  font-size: 17px;
+  margin-left: 2%;
+}
+
+.chat .footer-chat .name {
+  margin: 0 0 0 20px;
+  text-transform: uppercase;
+  font-family:'Montserrat', sans-serif;
+  font-size: 13pt;
+  color:#515151;
+}
+
+.chat .footer-chat .right {
+  position: absolute;
+  right: 40px;
+}
+
+.write-message {
+  border: 1px solid darkgrey;
+  resize: none;
+  width: 87%;
+  height: 85px;
+  margin-left: 6.8%;
+  padding: 14px;
+  font-size: 11px;
+  border-radius: 7px;
+}
+.write-message1 {
+  border: 1px solid darkgrey;
+  width: 55%;
+  height: 50px;
+  margin-left: 9%;
+  border-radius: 6px;
+  padding: 13px;
+}
+
+.footer-chat *::-webkit-input-placeholder {
+  color: #C0C0C0;
+  font-size: 13pt;
+}
+.footer-chat input *:-moz-placeholder {
+  color: #C0C0C0;
+  font-size: 13pt;
+}
+.footer-chat input *::-moz-placeholder {
+  color: #C0C0C0;
+  font-size: 13pt;
+  margin-left:5px;
+}
+.footer-chat input *:-ms-input-placeholder {
+  color: #C0C0C0;
+  font-size: 13pt;
+}
+
+.clickable {
+  cursor: pointer;
+}

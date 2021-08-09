@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {Category, CategoryControllerService, Poem, PoemControllerService} from "../../../swagger-api";
 import {MatDialog} from "@angular/material/dialog";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -99,7 +99,9 @@ export class PoemAdminComponent implements OnInit {
     this.route.navigate(['/admin/poem-admin'])
   }
 
-  openDeleteModal(id:number | undefined){
+  openDeleteModal(id:number | undefined, event: { stopPropagation: () => void; }| undefined){
+    // @ts-ignore
+    event.stopPropagation();
     let dialogRef = this.matDialog.open(DeleteComponent, { data:id})
     dialogRef.afterClosed().subscribe(result => {
       if (result){
@@ -109,7 +111,9 @@ export class PoemAdminComponent implements OnInit {
 
   }
 
-  openEditModal(id:number | undefined){
+  openEditModal(id:number | undefined,event: { stopPropagation: () => void; }| undefined){
+    // @ts-ignore
+    event.stopPropagation();
     let dialogRef = this.matDialog.open(AddComponent, { data:id})
     dialogRef.afterClosed().subscribe(result => {
       if (result){
@@ -117,12 +121,17 @@ export class PoemAdminComponent implements OnInit {
       }
     });
   }
-  openCommentModal(id:number | undefined) {
-    this.matDialog.open(ViewCommentComponent, { data:id})
+  openCommentModal(id:number| undefined, event: { stopPropagation: () => void; }| undefined) {
+      this.matDialog.open(ViewCommentComponent, { data:id})
+    // @ts-ignore
+    event.stopPropagation();
   }
   readPoem(id:number|undefined){
-    this.route.navigate(['/admin/poem'],{queryParams:{data:id}})
-  }
+
+      this.route.navigate(['/admin/poem'],{queryParams:{data:id}})
+
+    }
+
   searchPoemAdmin(){
     this.poemControllerService.getAllByUserId(getUserId()).subscribe(response=>{
       this.poemData = response.data

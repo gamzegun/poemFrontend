@@ -1,4 +1,4 @@
-<div style="background-color: #00b0ff;color: white; font-size: 10px">
+<!--<div style="background-color: #00b0ff;color: white; font-size: 10px">
   <div *ngFor="let message of errorMessages">
     <p>{{message}}</p>
   </div>
@@ -17,4 +17,55 @@
 <ng-template #editBtn>
   <button class="btn btn-primary" (click)="edit()">Kaydet</button>
 </ng-template>
-<button (click)="close()">Kapat</button>
+<button (click)="close()">Kapat</button>-->
+
+
+
+<div class="custom-dialog-box">
+  <div id="paper-window">
+    <div id="paper-front">
+      <div id="container">
+        <section>
+          <div id="result-iframe-wrap" role="main">
+            <div class="iframe" id="result">
+
+              <div id="wrapper">
+
+                <div action="" id="paper" method="get">
+                  <div class="paper-message">
+                    <div *ngFor="let message of errorMessages">
+                      <p>{{message}}</p>
+                    </div>
+                  </div>
+
+                  <div id="margin">1. Yazıyı giriniz: <br/><textarea [(ngModel)]="letter1"  id="letter1" class="title" type="text" autocomplete="off"></textarea></div>
+                  <div id="margin2">2. Yazıyı giriniz: <br/><textarea [(ngModel)]="letter2" id="letter2"  class="title" type="text" autocomplete="off"></textarea></div>
+                  <div id="margin3">3. Yazıyı giriniz: <br/><textarea [(ngModel)]="letter3" id="letter3" class="title" type="text" autocomplete="off"></textarea></div>
+                  <div id="margin4">Ana Yazıyı giriniz: <br/><textarea [(ngModel)]="bigLetter" id="bigLetter"  class="title" type="text" autocomplete="off"></textarea></div>
+                  <div class="select-pic">
+                    <span>Resim Seçiniz</span>
+                  <ul>
+                    <li *ngFor="let pic of pictures; let i=index">
+                      <input type="checkbox" id="myCheckbox{{i}}"/>
+                      <label [ngClass]="classControl(pic)" (click)="pictureHomePage=pic" for="myCheckbox{{i}}"><img src="{{pic}}" width="100px" height="80px"/></label>
+                    </li>
+                  </ul>
+                  </div>
+                  <button *ngIf="homeSetting.id===0;else editBtn" mat-button class="add-setting-button" (click)="add()">Ekle</button>
+                  <button mat-button class="cancel-button"  (click)="close()">Kapat</button>
+
+                  <ng-template #editBtn>
+                    <button mat-button class="setting-button" (click)="edit()">Kaydet</button>
+                  </ng-template>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+        <section></section>
+      </div>
+    </div>
+  </div>
+
+</div>

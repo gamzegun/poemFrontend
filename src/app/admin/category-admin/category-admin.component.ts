@@ -39,7 +39,9 @@ export class CategoryAdminComponent implements OnInit {
       }
     })
   }
-  openDeleteCategoryModal(id:number | undefined){
+  openDeleteCategoryModal(id:number | undefined,event: { stopPropagation: () => void; }| undefined){
+    // @ts-ignore
+    event.stopPropagation();
     let dialogRef = this.matDialog.open(DeleteCategoryComponent, { data:id})
     dialogRef.afterClosed().subscribe(result => {
       if (result){
@@ -49,7 +51,9 @@ export class CategoryAdminComponent implements OnInit {
 
   }
 
-  openEditCategoryModal(id:number | undefined){
+  openEditCategoryModal(id:number | undefined,event: { stopPropagation: () => void; }| undefined){
+    // @ts-ignore
+    event.stopPropagation();
     let dialogRef = this.matDialog.open(AddCategoryComponent, { data:id})
     dialogRef.afterClosed().subscribe(result => {
       if (result){

@@ -3,6 +3,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {HomeSettingsModalComponent} from "../home-settings-modal/home-settings-modal.component";
 import {environment} from "../../../environments/environment";
 import {removeToken} from "../../helper/util";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-navbar-admin',
@@ -11,7 +12,8 @@ import {removeToken} from "../../helper/util";
 })
 export class NavbarAdminComponent implements OnInit {
     @Input() poemName:string|undefined='';
-  constructor(public matDialog: MatDialog) { }
+  constructor(public matDialog: MatDialog, private route:Router) { }
+  back:string='yellow'
 
   ngOnInit(): void {
   }
@@ -21,7 +23,8 @@ export class NavbarAdminComponent implements OnInit {
   }
 
   logOut(){
-    window.location.href=environment.adminUrl+"/login-page"
+    this.route.navigate(['admin/login-page'])
+
     removeToken()
   }
 

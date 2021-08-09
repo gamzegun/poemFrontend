@@ -35,6 +35,6 @@ export class CategoryComponent implements OnInit {
   }
   routeAllPoem(id:number|null|undefined, categoryName:string|null|undefined){
     if (id!==null && id!==undefined && categoryName!==null && categoryName!==undefined){
-      this.route.navigate(['/all-poem'], {queryParams:{data:id, category:categoryName,status:2}})
+      this.route.navigate(['/poems'], {queryParams:{data:id, category:categoryName,status:3}})
     }}
 }

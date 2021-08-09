@@ -1,17 +1,56 @@
-<div class="all-view">
-  <div class="half-circle"></div>
-  <div class="line-full"><span class="view-content-title">Şiirler</span></div>
-<section class="poem-section">
-  <ul id="categories" class="clr">
-  <li class="pusher"></li>
-  <li (click)="onePoem(poem.id)" *ngFor="let poem of poemData">
-    <div>
-      <img [src]="poem.pictureLink" alt=""/>
-      <h1>{{poem.title}}</h1>
-      <p>{{poem.poemDetail}}</p>
-    </div>
-  </li>
+<app-navigation-bar *ngIf="allPoemsStatus!==2" [searchBar]="false" (searchMethodOutput)="getPoemBySearch($event)"></app-navigation-bar>
+<app-header [navbarType]="true" [bigText]="categoryName" *ngIf="allPoemsStatus!==2"></app-header>
 
-</ul>
-</section>
-</div>
+<div class="all-view">
+  <div class="line-full" ><span class="view-content-title">Şiirler</span></div>
+
+  </div>
+
+  <section class="section">
+    <div class="grid" [ngStyle]="{'grid-auto-columns':poemData.length<3? '25%':'auto','width':poemData.length<3? '25%':''}">
+      <div class="item item--medium"  (click)="onePoem(poem.id)"
+           [ngStyle]="{'background-image':'url('+poem.pictureLink+')'}" *ngFor="let poem of poemData"
+           (mouseleave)="poemId=0" (mouseover)="poemId=poem.id">
+        <div class="row active-with-click" *ngIf="poem.id === poemId ">
+          <article [ngClass]="classControl(poem.id)">
+            <h2>
+              <span>{{poem.title}}</span>
+              <strong>
+                <i class="fa fa-fw fa-star"></i>
+                {{poem.date}}
+              </strong>
+            </h2>
+            <div class="mc-content">
+              <div class="img-container">
+                <img class="img-responsive imageRes"
+                     src="{{poem.pictureLink}}">
+              </div>
+              <div class="mc-description">
+                {{poem.poemDetail}}
+                <h4>
+                  {{poem.writer}}
+                </h4>
+              </div>
+            </div>
+            <a class="mc-btn-action">
+              <i class="fa fa-bars"></i>
+            </a>
+          </article>
+
+        </div>
+        <div class="row active-with-click" *ngIf="poem.id !== poemId ">
+          <article [ngClass]="classControl(poem.id)">
+            <h2 class="h2-before">
+              <span>{{poem.title}}</span>
+              <strong>
+                <i class="fa fa-fw fa-star"></i>
+                {{poem.date}}
+              </strong>
+            </h2>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<app-letter *ngIf="allPoemsStatus!==2" ></app-letter>

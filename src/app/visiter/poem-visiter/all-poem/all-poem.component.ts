@@ -31,7 +31,7 @@ export class AllPoemComponent implements OnInit {
     } else if (this.status==2) {
       this.getPoemByCategory(this.categoryId)
     } else if (this.status==3) {
-      this.getPoemBySearch()
+      this.getPoemBySearch(this.poem)
     }
   }
   getPoem(){
@@ -47,12 +47,14 @@ export class AllPoemComponent implements OnInit {
       })
     }}
 
-  getPoemBySearch(){
+  getPoemBySearch(data:any){
     if (this.searchText!==undefined){
-      this.poemControllerService.getPoemsBySearchText(this.searchText).subscribe(response=>{
+      this.searchText=data;
+      this.poemControllerService.getPoemsBySearchText(data).subscribe(response=>{
         this.poemData=response.data
       })
-    }}
+    }
+    }
   showPoem(id:number|undefined){
     this.router.navigate(['/one-poem'],{queryParams:{data:id}})
   }

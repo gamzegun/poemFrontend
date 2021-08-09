@@ -1,6 +1,7 @@
 export const environment = {
   production: false,
-  adminUrl: 'http://localhost:4200/admin',
-  tokenName: 'token'
+  adminUrl: 'http://localhost:8090/admin',
+  tokenName: 'token',
+  baseUrl: 'http://localhost:8090/poem'
 };
 

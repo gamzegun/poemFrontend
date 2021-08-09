@@ -406,15 +406,22 @@ h3 {
 }
 
 .icon{
-  width: 1%;
-  margin-left: -25px;
+  width: 2%;
+  height: 42px;
+  padding: 0px;
+  margin-left: 1441px;
+  margin-top: -63px;
 
 }
 
 .position{
-  margin-inline-start: 35%;
+  width: 18%;
+  height: 43px;
+  margin-left: 1180px;
+  margin-top: -10px;
 }
-
-
+.open-modal{
+  width: 90%;
+}
 
 

@@ -1,16 +1,56 @@
-#button{
-  font-weight: 700;
-  padding: 19px 12px;
-  border-radius: 12px;
-  font-size: 16px;
-  margin-left: 424px;
-  margin-top: 5px;
-}
-.icon{
-  width: 1.5%;
-  margin-left: -25px;
+#button {
+    font-weight: 700;
+    padding: 19px 12px;
+    box-shadow: 0px 0px 16px 9px #315167f2;
+    border-radius: 12px;
+    font-size: 16px;
+    margin-left: 60%;
+    margin-top: -70px;
+    cursor: pointer;
+  }
 
-}
- .position{
-   margin-inline-start: 35%;
- }
+  .icon {
+    width: 35.5%;
+
+
+  }
+
+  .position {
+    margin-inline-start: 35%;
+  }
+
+  .container {
+    margin-left: 717px;
+  }
+
+  .input-search {
+    margin-top: 24px;
+  }
+
+  .input-group mp3 {
+    float: right;
+  }
+
+  .button-style {
+    width: 10%;
+    height: 50px;
+    padding: 0px;
+    margin-left: 5px;
+  }
+
+  .navbar-header {
+    width: 30%;
+  }
+
+  .img-position {
+    width: 30%;
+    margin-left: -190%;
+    cursor: pointer;
+  }
+
+  .search-poem {
+    width: 40%;
+    height: 50px
+  }
+
+

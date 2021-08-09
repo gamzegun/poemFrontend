@@ -29,6 +29,13 @@ export class HomeSettingsModalComponent implements OnInit {
     this.getSettings();
   }
 
+  classControl(picture:string){
+    if (this.pictureHomePage===picture){
+      return "checked2"
+    }
+    return "";
+  }
+
   getSettings() {
     this.homePageControllerService.get().subscribe(response => {
       if (response.data !== null) {

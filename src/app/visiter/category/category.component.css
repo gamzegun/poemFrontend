@@ -1,10 +1,10 @@
 
 .half-circle {
-  width: 70px;
-  margin-left: 20%;
-  margin-top: 4.1%;
+  width: 160px;
+  margin-left: 4.5%;
+  margin-top: 2.1%;
   position: absolute;
-  height: 34px;
+  height: 72px;
   border-top-left-radius: 100px;
   border-top-right-radius: 100px;
   border-top: 2px inset #8080805c;
@@ -21,7 +21,7 @@
   position: absolute;
 }
 .view-content-title{
-  margin-left: 26%;
+  margin-left: 5%;
   font-size: x-large;
 }
 .view-all-circle{
@@ -365,7 +365,7 @@ h1 {
   -o-transition: all 0.3s;
   transition: all 0.3s;
   border-bottom-right-radius: 23%;
-  background-color: #8b07a2;
+  background-color: #71afe4;
   font-family: "Segoe Script", serif;
 }
 

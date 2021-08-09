@@ -1,25 +1,17 @@
-<nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
+
+<nav  class="navbar navbar-default navbar-shrink">
   <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header page-scroll">
-      <button class="navbar-toggle" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <img src="../../../assets/logo.PNG" style="width: 25%;">
-    </div>
-
-    <div >
-      <input *ngIf="searchBar"  class="position" [(ngModel)]="searchText" placeholder="Ara"/>
-
+    <div class="navbar-header page-scroll" >
+      <img [routerLink]="['/']"  class="img-position" src="../../../assets/logo1.png">
 
     </div>
-    <img *ngIf="searchBar" (click)="search()" class="icon" src="../../../assets/search%20(1).svg">
-    <a [routerLink]="['/admin/login-page']" class="btn btn-info text-center" id="button" style="cursor: pointer" >Giriş Yap
-    </a>
-    <!-- /.navbar-collapse -->
+    <div class="input-group mb-3 ">
+      <input [(ngModel)]="searchText" type="text" class="form-control search-poem"  placeholder="Şiir ara..." aria-label="Şiir ara..." aria-describedby="basic-addon2">
+
+        <button (click)="search()" class="btn btn-outline-secondary button-style" type="button" ><img class="icon" src="../../../assets/search%20(1).svg"></button>
+      <a [routerLink]="['/admin/login-page']" class="btn btn-info text-center" id="button" >Giriş Yap
+      </a>
+
+    </div>
   </div>
-  <!-- /.container-fluid -->
 </nav>

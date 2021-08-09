@@ -1,4 +1,4 @@
-<div style="background-color: #00b0ff;color: white; font-size: 10px">
+<!--<div class="error-message">
   <div *ngFor="let message of errorMessages">
     <p>{{message}}</p>
   </div>
@@ -8,7 +8,7 @@
 
 <mat-select placeholder="Resim seçiniz" [(ngModel)]="picture" >
   <mat-option *ngFor="let pic of pictures" [value]="pic" >
-    <img src="{{pic}}" width="70px" height="50px"/>
+    <img class="chosen-pic" src="{{pic}}"/>
   </mat-option>
 </mat-select><br>
 
@@ -16,4 +16,49 @@
   <button mat-button  (click)="addCategory()">Ekle</button>
 </ng-template>
 <button mat-button  (click)="editCategory()" *ngIf="data !==null && data!==undefined; else addBtn">Kaydet</button>
-<button mat-button (click)="close()">Kapat</button>
+<button mat-button (click)="close()">Kapat</button>-->
+
+
+
+<div class="custom-dialog-box">
+  <div id="paper-window">
+    <div id="paper-front">
+      <div id="container">
+        <section>
+          <div id="result-iframe-wrap" role="main">
+            <div class="iframe" id="result">
+
+              <div id="wrapper">
+
+                <div action="" id="paper" method="get">
+                  <div class="paper-message">
+                    <div *ngFor="let message of errorMessages">
+                      <p>{{message}}</p>
+                    </div>
+                  </div>
+
+                  <div id="margin">Şiir adı: <input [(ngModel)]="categoryName"  id="categoryName" placeholder="Kategori adını giriniz" class="title" type="text" autocomplete="off"></div>
+                  <div id="margin2">Yazar adı: <input [(ngModel)]="categoryDescription" id="writer" placeholder="Kategori açıklamasını girin" class="title" type="text" autocomplete="off"></div>
+                  <mat-select class="user-select" placeholder="Resim seçiniz" [(ngModel)]="picture" >
+                    <mat-option  *ngFor="let pic of pictures" [value]="pic" >
+                      <img class="chosen-pic" src="{{pic}}"/>
+                    </mat-option>
+                  </mat-select><br>
+
+                  <ng-template #addBtn>
+                    <button class="add-category-button" mat-button  (click)="addCategory()">Ekle</button>
+                  </ng-template>
+                  <button mat-button class="category-button" (click)="editCategory()" *ngIf="data !==null && data!==undefined; else addBtn">Kaydet</button>
+                  <button mat-button (click)="close()">Kapat</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+        <section></section>
+      </div>
+    </div>
+  </div>
+
+</div>

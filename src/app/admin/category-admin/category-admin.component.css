@@ -138,6 +138,11 @@ h1 {
 }
 .item--medium {
   grid-row-end: span 2;
+
+}
+
+.open-modal{
+  width: 90%;
 }
 
 .item__details {

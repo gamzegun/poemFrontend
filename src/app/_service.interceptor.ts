@@ -11,11 +11,12 @@ import {catchError, finalize} from "rxjs/operators";
 import Swal from 'sweetalert2'
 import {throwError} from "rxjs";
 import {environment} from "../environments/environment";
+import {Router} from "@angular/router";
 
 @Injectable({providedIn:'root'})
 export class ServiceInterceptor implements HttpInterceptor{
 
-  constructor() {
+  constructor(private route:Router) {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler) {
@@ -24,7 +25,7 @@ export class ServiceInterceptor implements HttpInterceptor{
 
     if ((isTokenExpired()||token === null) && window.location.href.includes(environment.adminUrl)
       && !window.location.href.includes('admin/login-page')) {
-      window.location.href= environment.adminUrl+"/login-page"
+      this.route.navigate(['admin/login-page'])
     }
     else if (!window.location.href.includes(environment.adminUrl+"/login-page")){
       request = this.addAuthenticationToken(request);

@@ -14,9 +14,9 @@
           </article>
         </div>
         <div class="item__details">
-          <div style="width: 90%">
-            <img class="other-icon" (click)="openEditCategoryModal(category.id)" src="assets/edit.svg"/>
-            <img class="other-icon" (click)="openDeleteCategoryModal(category.id)" src="assets/delete.svg"/>
+          <div class="open-modal">
+            <img class="other-icon" (click)="openEditCategoryModal(category.id,$event)" src="assets/edit.svg"/>
+            <img class="other-icon" (click)="openDeleteCategoryModal(category.id,$event)" src="assets/delete.svg"/>
           </div>
         </div>
       </div>

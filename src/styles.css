@@ -3,6 +3,13 @@
  * Code licensed under the Apache License v2.0.
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
+
+app-login-page{
+  height: 940px;
+  background-image: url("assets/poem10.jpg");
+  display: flow-root;
+  background-repeat: no-repeat;
+}
 body {
   overflow-x: hidden;
   font-family: "Segoe Script";
@@ -252,9 +259,7 @@ fieldset[disabled] .btn-xl.active {
   }
 
   .navbar-default.navbar-shrink {
-    padding: 10px 0;
-    background-color: #ffffff;
-    box-shadow: 5px -4px 21px 10px #423a3a;
+    background-color: rgb(255 255 255 / 0%);
   }
 
   .navbar-default.navbar-shrink .navbar-brand {
@@ -341,10 +346,31 @@ section h3.section-subheading {
 
 @media (min-width: 768px) {
   section {
-    padding: 150px 0;
+    padding: 3px 0;
   }
 }
 
+.setting-button{
+  width: 45%;
+  height: 41px;
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+  background-color: #039c16ad;
+  box-shadow: 0px 2px 7px #000;
+  float: right;
+}
+.cancel-button{
+  width: 45%;
+  height: 41px;
+  color: black;
+  font-size: 17px;
+  font-weight: 600;
+  background-color: white;
+  box-shadow: 0px 2px 7px #000;
+  float: left;
+  margin-left: 2%;
+}
 .service-heading {
   margin: 15px 0;
   text-transform: none;

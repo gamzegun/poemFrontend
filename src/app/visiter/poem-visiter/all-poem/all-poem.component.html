@@ -1,9 +1,5 @@
-<app-navigation-bar [searchBar]="false" ></app-navigation-bar>
+<app-navigation-bar [searchBar]="false" (searchMethodOutput)="getPoemBySearch($event)"></app-navigation-bar>
 <app-header [navbarType]="true" [bigText]="categoryName"></app-header>
-<div>
-  <input class="position" [(ngModel)]="searchText" placeholder="Ara"/>
-</div>
-<div><img (click)="getPoemBySearch()" width="2%" src="assets/search%20(1).svg"></div>
 <div class="all-view">
   <div class="half-circle"></div>
   <div class="line-full"><span class="view-content-title">Şiirler</span></div>

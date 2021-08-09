@@ -1,5 +1,4 @@
 <div class="all-view">
-  <div class="half-circle"></div>
   <div class="line-full"><span class="view-content-title">Kategoriler</span></div>
   <section class="section">
     <div class="grid">
@@ -14,14 +13,4 @@
       </div>
     </div>
   </section>
-</div>
-
-<div class="item item--medium" [ngStyle]="{'background-image':'url('+poem.pictureLink+')'}" *ngFor="let poem of poemData" >
-  <div class="row active-with-click">
-    <article [ngClass]="materialCardClass">
-            <span class="h3-before">
-              <span>{{poem.poemDetail}}</span>
-            </span>
-    </article>
-  </div>
 </div>
