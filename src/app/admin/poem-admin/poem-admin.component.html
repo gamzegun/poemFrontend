@@ -1,18 +1,12 @@
 <app-navbar-admin *ngIf="allPoemsStatus==1 || allPoemsStatus==3"></app-navbar-admin>
+<div class="input-group mb-3 " >
+  <input type="text" class="form-control position" [(ngModel)]="searchText" placeholder="Şiir ara..." aria-label="Şiir ara..." aria-describedby="basic-addon2">
+  <button (click)="getPoemBySearch()" class="btn btn-outline-secondary icon" type="button" ><img  src="../../../assets/search%20(1).svg"></button>
+
+</div>
 
 <div class="all-view">
   <div class="half-circle">
-    <div class="input-group mb-3 " >
-      <input type="text" class="form-control position" [(ngModel)]="searchText" placeholder="Şiir ara..." aria-label="Şiir ara..." aria-describedby="basic-addon2">
-      <button (click)="getPoemBySearch()" class="btn btn-outline-secondary icon" type="button" ><img  src="../../../assets/search%20(1).svg"></button>
-
-    </div>
-
-
-
-
-    <!-- <input class="position" [(ngModel)]="searchText" placeholder="Ara"/>
-    <img class="icon"  (click)="getPoemBySearch()"src="assets/search%20(1).svg">-->
   </div>
   <div class="half-circle view-all-circle" *ngIf="allPoemsStatus==2"></div>
   <div class="line-full" ><span class="view-content-title">Şiirler</span></div>
@@ -44,7 +38,7 @@
                      src="{{poem.pictureLink}}">
               </div>
               <div class="mc-description">
-                {{poem.poemDetail}}
+                {{poem.poemDetail | slice:0:90}}...
                 <h4>
                   {{poem.writer}}
                 </h4>

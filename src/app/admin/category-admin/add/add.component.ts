@@ -43,6 +43,16 @@ export class AddCategoryComponent implements OnInit {
       }
     });
   }}
+
+  classControl(picture:string){
+    if (this.picture===picture){
+      return "checked2"
+    }
+    return "";
+  }
+
+
+
   editCategory(){
     if (this.validators()){
     let data : Category = {

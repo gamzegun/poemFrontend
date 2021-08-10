@@ -1,23 +1,4 @@
 <div class="custom-dialog-box">
-<!--
-<div style="background-color: #00b0ff;color: white; font-size: 10px">
-  <div *ngFor="let message of errorMessages">
-  <p>{{message}}</p>
-  </div>
-  </div>
-<input [(ngModel)]="poemName"  id="poemName" placeholder="Şiir adını giriniz"><br>
-
-<input [(ngModel)]="writer" id="writer" placeholder="Yazar adını giriniz"><br>
-<textarea [(ngModel)]="poemDetail" id="poemDetail" placeholder="Şiiri yazınız"></textarea><br>
-<mat-select placeholder="Kategori seçiniz" [(ngModel)]="selectedValue" >
-  <mat-option *ngFor="let category of categoryData" [value]="category.id">{{category.categoryName}}</mat-option>
-</mat-select>
-<button mat-button *ngIf="data!==null && data!==undefined; else addBtn" (click)="edit()">Kaydet</button>
-<ng-template #addBtn ><button mat-button (click)="add()">Ekle</button></ng-template>
-
-<button mat-button (click)="close()">Kapat</button>
--->
-
   <div id="paper-window">
     <div id="paper-front">
       <div id="container">
@@ -34,25 +15,31 @@
                     </div>
                   </div>
 
-                  <div id="margin">Şiir adı: <input [(ngModel)]="poemName"  id="poemName" class="title" name="title" type="text" autocomplete="off"></div>
-                  <div id="margin2">Yazar adı: <input [(ngModel)]="writer" id="writer" class="title" name="title" type="text" autocomplete="off"></div>
-                  <mat-select class="user-select" placeholder="Kategori seçiniz" [(ngModel)]="selectedValue" >
-                    <mat-option *ngFor="let category of categoryData" [value]="category.id">{{category.categoryName}}</mat-option>
+                  <div id="margin">Şiir adı: <input [(ngModel)]="poemName" id="poemName" class="title" name="title"
+                                                    type="text" autocomplete="off"></div>
+                  <div id="margin2">Yazar adı: <input [(ngModel)]="writer" id="writer" class="title" name="title"
+                                                      type="text" autocomplete="off"></div>
+                  <mat-select class="user-select" placeholder="Kategori seçiniz" [(ngModel)]="selectedValue">
+                    <mat-option *ngFor="let category of categoryData"
+                                [value]="category.id">{{category.categoryName}}</mat-option>
                   </mat-select>
-                  <textarea [(ngModel)]="poemDetail" id="poemDetail" placeholder="Şiiri yazınız..."  class="text" name="text"
+                  <textarea [(ngModel)]="poemDetail" id="poemDetail" placeholder="Şiiri yazınız..." class="text"
+                            name="text"
                             rows="4" autocomplete="off"></textarea><br>
 
-                  <button class="setting-button"  mat-button *ngIf="data!==null && data!==undefined; else addBtn" (click)="edit()">Kaydet</button>
-                  <ng-template #addBtn ><button  class="setting-button" mat-button (click)="add()">Ekle</button></ng-template>
+                  <button class="setting-button" mat-button *ngIf="data!==null && data!==undefined; else addBtn"
+                          (click)="edit()">Kaydet
+                  </button>
+                  <ng-template #addBtn>
+                    <button class="setting-button" mat-button (click)="add()">Ekle</button>
+                  </ng-template>
 
                   <button mat-button class="cancel-button" (click)="close()">Kapat</button>
                 </div>
-
               </div>
             </div>
           </div>
         </section>
-        <section></section>
       </div>
     </div>
   </div>

@@ -56,8 +56,9 @@
 
 }
 .other-icon{
-  width: 17%;
-  padding-left: 9%;
+  width: 14%;
+  padding-left: 3%;
+  padding-right: 3%;
   cursor: pointer;
 }
 
@@ -105,6 +106,7 @@ h1 {
 .item {
   position: relative;
   display: flex;
+  word-break: break-all;
   flex-direction: column;
   justify-content: flex-end;
   box-sizing: border-box;
@@ -358,7 +360,7 @@ h1 {
 
 
 .material-card.Red .mc-btn-action {
-  background-color: #71afe4;
+  background-color: #B71C1C;
 }
 .material-card.Red .mc-btn-action:hover {
   background-color: #B71C1C;
@@ -368,10 +370,10 @@ h1 {
 }
 
 .material-card.Red.mc-active .mc-content {
-  background-color: rgba(113, 175, 228, 0.49);
+  background-color: rgba(255, 255, 255, 0.6);
 }
 .material-card.Red.mc-active .mc-btn-action {
-  border-color: rgba(113, 115, 228, 0.54);
+  border-color: white;
 }
 .h2-before{
   top: calc(40% - 20px)!important;}

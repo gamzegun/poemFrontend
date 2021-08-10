@@ -1,0 +1,14 @@
+p{
+  margin: 13px 0px 20px;
+  font-size: 18px;
+  font-weight: bold;
+
+}
+button:hover{
+  background-color: plum;
+
+}
+button{
+  margin-left: 78px;
+
+}

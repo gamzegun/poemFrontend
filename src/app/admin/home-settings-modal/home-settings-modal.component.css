@@ -80,7 +80,6 @@
 #paper {
   color: black;
   font-size: 20px;
-
 }
 
 .text {
@@ -114,6 +113,10 @@
 .add-setting-button{
   margin-top: 17%;
   margin-left: -27%;
+}
+
+.setting-button{
+  background-color: #1005b3ad;
 }
 
 .user-select{

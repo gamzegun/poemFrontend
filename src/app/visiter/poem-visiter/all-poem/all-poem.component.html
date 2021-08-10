@@ -10,7 +10,7 @@
     <div>
       <img [src]="poem.pictureLink" alt=""/>
       <h1>{{poem.title}}</h1>
-      <p>{{poem.poemDetail}}</p>
+      <p>{{poem.poemDetail | slice:0:90}}...
     </div>
   </li>
 

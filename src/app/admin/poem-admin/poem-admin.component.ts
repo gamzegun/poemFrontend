@@ -127,14 +127,6 @@ export class PoemAdminComponent implements OnInit {
     event.stopPropagation();
   }
   readPoem(id:number|undefined){
-
       this.route.navigate(['/admin/poem'],{queryParams:{data:id}})
-
     }
-
-  searchPoemAdmin(){
-    this.poemControllerService.getAllByUserId(getUserId()).subscribe(response=>{
-      this.poemData = response.data
-    })
-  }
 }

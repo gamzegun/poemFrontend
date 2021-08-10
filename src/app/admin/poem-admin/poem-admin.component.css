@@ -56,8 +56,9 @@
 
 }
 .other-icon{
-  width: 17%;
-  padding-left: 9%;
+  width: 14%;
+  padding-left: 3%;
+  padding-right: 3%;
   cursor: pointer;
 }
 
@@ -103,6 +104,7 @@ h1 {
 }
 
 .item {
+  word-break: break-all;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -406,19 +408,18 @@ h3 {
 }
 
 .icon{
-  width: 2%;
-  height: 42px;
-  padding: 0px;
-  margin-left: 1441px;
-  margin-top: -63px;
-
+  width: 5%;
+  height: 45px;
+  padding: 1%;
+  margin-top: -35.5%;
+  margin-left: 113%;
 }
 
 .position{
-  width: 18%;
+  width: 37%;
   height: 43px;
-  margin-left: 1180px;
-  margin-top: -10px;
+  margin-left: 676px;
+  margin-top: -19%;
 }
 .open-modal{
   width: 90%;

@@ -2,13 +2,15 @@
   <div class="navbar-wrapper">
     <div class="navbar-container content">
       <div class="collapse navbar-collapse show" id="navbar-mobile">
+
         <div class="icon-v-all" (click)="openSettingModal()">
           <img class="icon-v-all" src="assets/gear.svg"/>
         </div>
         <button  class="btn btn-info text-center" id="button" (click)="logOut()">Çıkış Yap
         </button>
+          <img class="img-position" src="../../../assets/logo1.png"><br>
+        <span class="welcome-letter">Hoşgeldin, {{userName}}</span>
         <h2 class="navbar-title">{{poemName}}</h2>
-
       </div>
     </div>
   </div>

@@ -24,15 +24,31 @@ box-shadow: 24px 23px 93px -25px #423a3a;
   font-weight: 700;
   padding: 13px 12px;
   border-radius: 12px;
-  font-size: 16px;
+  font-size: 17px;
   margin-left: 94%;
   margin-top: -62px;
-  background-color: red;
+  background-color: #ff3030;
   cursor: pointer;
+  font-family: none;
+  border: 2px solid #d40808;
 }
 
 .navbar-title{
   text-align: center;
-  margin-top: 0%;
+  margin-top: -3.6%;
   color: white;
+}
+
+.welcome-letter{
+  font-size: x-large;
+  color: black;
+  padding-left: 1%;
+
+}
+
+.img-position {
+  width: 7%;
+  margin-top: -3%;
+  margin-left: 2%;
+  margin-bottom: 0.5%;
 }

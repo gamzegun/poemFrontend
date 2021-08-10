@@ -1,5 +1,6 @@
 p{
   font-size: 19px;
+  font-family: none;
 }
 
 .p-style{
@@ -196,10 +197,11 @@ p{
 .chat .footer-chat .send {
   color: #fff;
   background-color: #4f6ebd;
-  padding: 8px;
+  padding: 12px;
   border-radius: 11px;
-  font-size: 17px;
+  font-size: 19px;
   margin-left: 2%;
+  font-family: none;
 }
 
 .chat .footer-chat .name {

@@ -68,6 +68,7 @@ margin-left: 42px;
 
 p{
   font-size: 19px;
+  font-family: none;
 }
 
 .p-style{
@@ -251,12 +252,13 @@ p{
 }
 
 .chat .footer-chat .send {
-  color:#fff;
+  color: #fff;
   background-color: #4f6ebd;
-  padding: 8px 9px 7px 5px;
-  border-radius: 12px;
-  font-size: 11pt;
-  margin-left: 7px;
+  padding: 12px;
+  border-radius: 11px;
+  font-size: 19px;
+  margin-left: 2%;
+  font-family: none;
 }
 
 .chat .footer-chat .name {

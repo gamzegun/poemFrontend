@@ -82,10 +82,10 @@ export class HomeSettingsModalComponent implements OnInit {
       this.homePageControllerService.update1(data).subscribe(response => {
 
         if (response.data === 200) {
-          Swal.fire("Başarılı", "Şiir eklendi!", "success");
+          Swal.fire("Başarılı", "Ayarlar kaydedildi!", "success");
           this.dialogRef.close(true);
         } else {
-          Swal.fire("Hata", "Şiir eklenemedi!", "error");
+          Swal.fire("Hata", "Ayarlar kaydedilmedi!", "error");
         }
       });
     }
