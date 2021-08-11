@@ -1,46 +1,9 @@
 <app-navigation-bar></app-navigation-bar>
 <app-header [navbarType]="true" [bigText]="title"></app-header>
 
-
-<!--<input type="text" [(ngModel)]="newComment" placeholder="Yorum yazınız..."/>
-<input type="text" [(ngModel)]="interpreter" placeholder="İsim giriniz..."/>
-<button mat-raised-button (click)="doComment()">Gönder</button>
-<div style="border: solid 1px purple">
-  <div *ngFor="let comment of comments">
-    <p style="background-color: lightgrey; font-size: 12px">{{comment.comment}}</p>
-    <p style="background-color: lightgrey; font-size: 12px">{{comment.interpreter}}</p>
-    <p style="background-color: lightgrey; font-size: 12px">{{comment.date}}</p>
-  </div>
-</div>-->
-
-<!--
-<div class="messagePage">
-  <input type="text" [(ngModel)]="interpreter" placeholder="İsim giriniz..."/><br>
-  <textarea rows="4"  placeholder="Yorum yazınız..." [(ngModel)]="newComment"></textarea><br>
-  <button mat-raised-button  (click)="doComment()">Gönder</button>
-
-  <div class="messageContent">
-    <div class="commentHeading"></div>
-
-    <div style="background-color: #00b0ff;color: white; font-size: 10px">
-      <div *ngFor="let message of errorMessages">
-        <p class="p-style">{{message}}</p>
-      </div>
-    </div>
-
-    <div class="media-body">
-      <div *ngFor="let comment of comments">
-        <h4 class="media-heading">{{comment.interpreter}}<span class="timePosted">{{comment.date}}</span></h4>
-        <p class="comment p-style">{{comment.comment}}</p>
-      </div>
-    </div>
-  </div>
-</div>
--->
-
 <div class="container">
   <div class="poem-detail">
-    <p>30.07.2021</p>
+    <p>{{date | date: dateFormat}}</p>
     <p>{{poemDetail}}</p>
     <p>{{writer}}</p>
     <div style="background-color: #00b0ff;color: white; font-size: 10px">
@@ -62,9 +25,9 @@
           <div class="photo" style="background-image: url(assets/poem8.jpeg);">
             <div class="online"></div>
           </div>
-          <p class="text">{{comment.comment}}</p>
-          <p class="time">{{comment.date}}</p>
-          <p class="time">{{comment.interpreter}}</p>
+          <p class="text"><b class="time">{{comment.date | date: dateFormat}}</b><br/>{{comment.comment}}</p>
+
+          <b class="time">{{comment.interpreter}}</b>
 
         </div>
       </div>

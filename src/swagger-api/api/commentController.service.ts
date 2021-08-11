@@ -64,11 +64,14 @@ export class CommentControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public doComment(body?: CommentsDTO, observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
-    public doComment(body?: CommentsDTO, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
-    public doComment(body?: CommentsDTO, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
-    public doComment(body?: CommentsDTO, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public doComment(body: CommentsDTO, observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
+    public doComment(body: CommentsDTO, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
+    public doComment(body: CommentsDTO, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
+    public doComment(body: CommentsDTO, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling doComment.');
+        }
 
         let headers = this.defaultHeaders;
 

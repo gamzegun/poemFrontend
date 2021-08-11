@@ -2,12 +2,12 @@
   <div class="form-container sign-up-container">
     <form #signUpForm="ngForm" (ngSubmit)="signUp()" action="#">
       <h1>Hesap Oluştur</h1>
-      <input #name="ngModel" class="form-control" id="name" name="name" ngModel placeholder="Name" required
+      <input #name="ngModel" class="form-control" id="name" name="name" ngModel placeholder="isim" required
              type="text"/>
       <span *ngIf="name.invalid && name.touched" class="help-block">Bu alan boş bırakılamaz!</span>
       <input #username1="ngModel" id="username1" name="username1" ngModel placeholder="Kullanıcı adı" required type="username"/>
       <span *ngIf="username1.invalid && username1.touched" class="help-block">Bu alan boş bırakılamaz!</span>
-      <input #password="ngModel" id="password" name="password" ngModel placeholder="Password" required type="password"/>
+      <input #password="ngModel" id="password" name="password" ngModel placeholder="Şifre" required type="password"/>
       <span *ngIf="password.invalid && password.touched" class="help-block">Bu alan boş bırakılamaz!</span>
       <button  class="btn">Kayıt Ol</button>
     </form>
@@ -16,11 +16,10 @@
     <form #loginForm="ngForm" (ngSubmit)="logIn()" action="#">
       <h1>Giriş Yap</h1>
       <input #username="ngModel" id="username" name="username" ngModel placeholder="Kullanıcı adı" required type="text"/>
-      <span *ngIf="username.invalid && username.touched" class="help-block">Lütfen mail adresinizi girin!</span>
+      <span *ngIf="username.invalid && username.touched" class="help-block">Lütfen kullanıcı adınızı girin!</span>
       <input #password1="ngModel" id="password1" name="password1" ngModel placeholder="Şifre" required
              type="password"/>
       <span *ngIf="password1.invalid && password1.touched" class="help-block">Lütfen şifrenizi girin!</span>
-      <a href="#">Şifremi unuttum?</a>
       <button class="btn" type="submit">Giriş yap</button>
     </form>
   </div>

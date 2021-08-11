@@ -8,7 +8,7 @@
         </div>
         <button  class="btn btn-info text-center" id="button" (click)="logOut()">Çıkış Yap
         </button>
-          <img class="img-position" src="../../../assets/logo1.png"><br>
+          <img [routerLink]="['/admin/home-admin']" class="img-position" src="../../../assets/logo1.png"><br>
         <span class="welcome-letter">Hoşgeldin, {{userName}}</span>
         <h2 class="navbar-title">{{poemName}}</h2>
       </div>

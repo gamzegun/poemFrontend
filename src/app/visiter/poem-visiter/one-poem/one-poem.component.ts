@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {CommentControllerService, CommentsDTO, Poem, PoemControllerService} from "../../../../swagger-api";
 import Swal from "sweetalert2";
+import {environment} from "../../../../environments/environment";
 
 
 @Component({
@@ -10,15 +11,18 @@ import Swal from "sweetalert2";
   styleUrls: ['./one-poem.component.css']
 })
 export class OnePoemComponent implements OnInit {
+  dateFormat = environment.dateFormat;
   poemId: number = 0;
   title: string | undefined = '';
   newComment: string | undefined = '';
   interpreter: string | undefined = '';
   poemDetail: string | undefined = '';
+  date: Date | undefined=new Date();
   writer: string | undefined = '';
-  poem: Poem | undefined = {id: 0, poemDetail: '', pictureLink: '', title: '', categoryId: 0, userId: 0, writer: ''};
+  poem: Poem | undefined = {id: 0, date:new Date(), poemDetail: '', pictureLink: '', title: '', categoryId: 0, userId: 0, writer: ''};
   comments:CommentsDTO[]=[];
   errorMessages:string[]=[];
+
   constructor(private poemControllerService: PoemControllerService, private route: ActivatedRoute,
               private commentControllerService: CommentControllerService) {
   }
@@ -34,6 +38,7 @@ export class OnePoemComponent implements OnInit {
   getPoem() {
     this.poemControllerService.getById(this.poemId).subscribe(response => {
       this.poem = response.data
+      this.date = response.data.date
       this.title = response.data.title
       this.poemDetail = response.data.poemDetail
       this.writer = response.data.writer
@@ -43,7 +48,7 @@ export class OnePoemComponent implements OnInit {
 
   getComments() {
   this.commentControllerService.getAll1(this.poemId).subscribe(response=>{
-    this.comments = response.data.reverse()
+    this.comments = response.data
   })
   }
   doComment() {

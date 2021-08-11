@@ -24,9 +24,13 @@ export function getUserId() {
 }
 
 export function getName() {
-  const decodedToken = helper.decodeToken(getToken());
-  if (decodedToken !== null) {
-    return decodedToken.name;
+  let token=getToken();
+  if (token!==null){
+    const decodedToken = helper.decodeToken(token);
+    if (decodedToken !== null) {
+      return decodedToken.name;
+    }
+  }else {
+    return null;
   }
-  return ""
 }

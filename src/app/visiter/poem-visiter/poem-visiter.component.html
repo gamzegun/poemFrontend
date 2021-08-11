@@ -5,9 +5,9 @@
   <div class="line-full" ><span class="view-content-title">Şiirler</span></div>
 
   </div>
-
   <section class="section">
-    <div class="grid" [ngStyle]="{'grid-auto-columns':poemData.length<3? '25%':'auto','width':poemData.length<3? '25%':''}">
+    <app-all-poem *ngIf="poemData.length<1"></app-all-poem>
+    <div class="grid" [ngStyle]="{'grid-auto-columns':poemData.length<3? '40%':'auto','width':poemData.length<3? '40%':''}">
       <div class="item item--medium"  (click)="onePoem(poem.id)"
            [ngStyle]="{'background-image':'url('+poem.pictureLink+')'}" *ngFor="let poem of poemData"
            (mouseleave)="poemId=0" (mouseover)="poemId=poem.id">
@@ -17,7 +17,7 @@
               <span>{{poem.title}}</span>
               <strong>
                 <i class="fa fa-fw fa-star"></i>
-                {{poem.date}}
+                {{poem.date | date: dateFormat}}
               </strong>
             </h2>
             <div class="mc-content">
@@ -44,7 +44,7 @@
               <span>{{poem.title}}</span>
               <strong>
                 <i class="fa fa-fw fa-star"></i>
-                {{poem.date}}
+                {{poem.date| date: dateFormat}}
               </strong>
             </h2>
           </article>

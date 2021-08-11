@@ -18,7 +18,7 @@
   </div>
 
 
-  <section class="section" [ngStyle]="{'width':poemData.length<5? '23%':''}">
+  <section class="section" [ngStyle]="{'grid-auto-columns':poemData.length<3? '40%':'auto','width':poemData.length<3? '40%':''}">
     <div class="grid">
       <div class="item item--medium"  (click)="readPoem(poem.id)"
            [ngStyle]="{'background-image':'url('+poem.pictureLink+')'}" *ngFor="let poem of poemData"
@@ -73,5 +73,6 @@
       </div>
     </div>
   </section>
+  <app-all-poem *ngIf="poemData.length<1"></app-all-poem>
 
 </div>

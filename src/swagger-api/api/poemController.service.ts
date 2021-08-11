@@ -184,6 +184,52 @@ export class PoemControllerService {
     /**
      *
      *
+     * @param categoryId
+     * @param userId
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public getAllByCategoryIdAndUserId(categoryId: number, userId: number, observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
+    public getAllByCategoryIdAndUserId(categoryId: number, userId: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
+    public getAllByCategoryIdAndUserId(categoryId: number, userId: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
+    public getAllByCategoryIdAndUserId(categoryId: number, userId: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (categoryId === null || categoryId === undefined) {
+            throw new Error('Required parameter categoryId was null or undefined when calling getAllByCategoryIdAndUserId.');
+        }
+
+        if (userId === null || userId === undefined) {
+            throw new Error('Required parameter userId was null or undefined when calling getAllByCategoryIdAndUserId.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<ResponseModel>('get',`${this.basePath}/rest/poem/getAllByCategoryIdAndUserId/${encodeURIComponent(String(categoryId))}/${encodeURIComponent(String(userId))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     *
+     *
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
@@ -505,6 +551,52 @@ export class PoemControllerService {
         ];
 
         return this.httpClient.request<ResponseModel>('get',`${this.basePath}/rest/poem/getPoemsBySearchTextAndCategoryId/${encodeURIComponent(String(text))}/${encodeURIComponent(String(categoryId))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     *
+     *
+     * @param text
+     * @param userId
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public getPoemsBySearchTextAndUser(text: string, userId: number, observe?: 'body', reportProgress?: boolean): Observable<ResponseModel>;
+    public getPoemsBySearchTextAndUser(text: string, userId: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseModel>>;
+    public getPoemsBySearchTextAndUser(text: string, userId: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseModel>>;
+    public getPoemsBySearchTextAndUser(text: string, userId: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (text === null || text === undefined) {
+            throw new Error('Required parameter text was null or undefined when calling getPoemsBySearchTextAndUser.');
+        }
+
+        if (userId === null || userId === undefined) {
+            throw new Error('Required parameter userId was null or undefined when calling getPoemsBySearchTextAndUser.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<ResponseModel>('get',`${this.basePath}/rest/poem/getPoemsBySearchTextAndUser/${encodeURIComponent(String(text))}/${encodeURIComponent(String(userId))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,

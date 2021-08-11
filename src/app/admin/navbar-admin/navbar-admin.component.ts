@@ -21,7 +21,12 @@ export class NavbarAdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userName=getName()
+    let name=getName();
+    if (name!==null){
+      this.userName=name
+    }else {
+      this.route.navigate(['/admin/login-page'])
+    }
   }
 
   openSettingModal() {

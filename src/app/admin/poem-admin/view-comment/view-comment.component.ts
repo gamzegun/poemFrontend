@@ -2,6 +2,8 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {CommentControllerService, CommentsDTO} from "../../../../swagger-api";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import Swal from "sweetalert2";
+import {environment} from "../../../../environments/environment";
+import {getName} from "../../../helper/util";
 
 @Component({
   selector: 'app-view-comment',
@@ -9,6 +11,7 @@ import Swal from "sweetalert2";
   styleUrls: ['./view-comment.component.css']
 })
 export class ViewCommentComponent implements OnInit {
+  dateFormat=environment.dateFormat;
   answer: string = '';
   comments: CommentsDTO[] = [];
   errorMessages:string[]=[];
@@ -24,7 +27,7 @@ export class ViewCommentComponent implements OnInit {
 
   getComments() {
     this.commentControllerService.getAll1(this.data).subscribe(response => {
-      this.comments = response.data.reverse()
+      this.comments = response.data
     })
   }
   doComment() {
@@ -32,7 +35,7 @@ export class ViewCommentComponent implements OnInit {
     let data: CommentsDTO={
       poemId: this.data,
       comment: this.answer,
-      interpreter: "Kaya Şahin"
+      interpreter: getName()
     }
     this.commentControllerService.doComment(data).subscribe(response => {
       this.comments = response.data

@@ -6,6 +6,7 @@ import {getUserId} from "../../helper/util";
 import {AddComponent} from "../../admin/poem-admin/add/add.component";
 import {DeleteComponent} from "../../admin/poem-admin/delete/delete.component";
 import {ViewCommentComponent} from "../../admin/poem-admin/view-comment/view-comment.component";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-poem-visiter',
@@ -13,6 +14,7 @@ import {ViewCommentComponent} from "../../admin/poem-admin/view-comment/view-com
   styleUrls: ['./poem-visiter.component.css']
 })
 export class PoemVisiterComponent implements OnInit {
+  dateFormat=environment.dateFormat;
   defaultMaterialCardClass: string = "material-card Red";
   materialCardClass = "material-card mc-active Red";
   poemId: number | undefined = 0;

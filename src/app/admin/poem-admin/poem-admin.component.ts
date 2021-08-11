@@ -75,13 +75,13 @@ export class PoemAdminComponent implements OnInit {
   }
   getCategoryPoems() {
     if (this.categoryId!==undefined){
-    this.poemControllerService.getByCategory(this.categoryId).subscribe(response => {
+    this.poemControllerService.getAllByCategoryIdAndUserId(this.categoryId,getUserId()).subscribe(response => {
       this.poemData = response.data
     })}
   }
   getPoemBySearch(){
     if (this.searchText!==undefined){
-      this.poemControllerService.getPoemsBySearchText(this.searchText).subscribe(response=>{
+      this.poemControllerService.getPoemsBySearchTextAndUser(this.searchText, getUserId()).subscribe(response=>{
         this.poemData=response.data
       })
     }}

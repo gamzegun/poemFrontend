@@ -1,74 +1,5 @@
-/*
-
-
-p{
-  font-size: 1.1em;
-  line-height: 200%;
-  color:#989EA4;
-}
-
-.messagePage {
-
-  border-radius: 4px;
-
-  background-color: #F8F9FA;
-  background-size: 100% 600px;
-  background-repeat: no-repeat;
-  float: left;}
-
-.messageContent {
-  padding: 30px;
-  margin-left: -107px
-}
-
-.media {
-  margin-top: 21px;
-}
-
-.media-heading {
-  color: #000;
-  font-size: .8em;
-
-}
-
-.media-body {
-  font-size: large;
-  padding-left: 125px;
-  width: 668px;
-  padding-top: 9px;
-
-
-
-}
-
-.comment {
-  font-size: .8em;
-  color:#989EA4;
-  line-height: 180%;
-}
-
-#answer{
-margin-left: 42px;
-}
-
-.button{
-  margin-left: 9px;
-}
-
-.error-message{
-  background-color: #00b0ff;
-  color: white;
-  font-size: 10px;
-}
-*/
-
-
-
-
-
 p{
   font-size: 19px;
-  font-family: none;
 }
 
 .p-style{
@@ -117,7 +48,10 @@ p{
 }
 
 .poem-detail{
-  margin: 76px;
+  margin: 3%;
+  margin-bottom: 3%;
+  margin-top: 2%;
+  padding: 44px;
   background-color: aliceblue;
   font-weight: bold;
   box-shadow: 0px 8px 28px -7px grey;
@@ -125,13 +59,11 @@ p{
 }
 
 .container {
+  padding:0;
   background-color: #FFF;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  width: 1120px;
-  height: 729px;
-  overflow: auto;
-  overflow-x: hidden;
-  padding-left: 29px;
+  height: fit-content;
+  margin-top: -5px;
+  width: 100%;
 
 }
 
@@ -148,8 +80,9 @@ p{
 }
 
 .chat {
-  width: calc(65% - 85px);
+  width: calc(100% - 0px);
 }
+
 
 .header-chat {
   background-color: #FFF;
@@ -180,12 +113,18 @@ p{
 
 .chat .messages-chat {
   padding: 25px 35px;
+  width: 99%;
+  height: 480px;
+  margin-left: -4%;
+
 }
 
 .chat .messages-chat .message {
-  display:flex;
+  display: flex;
   align-items: center;
   margin-bottom: 8px;
+  border-bottom: 1px solid #eadddd;
+  padding: 5px;
 }
 
 .chat .messages-chat .message .photo {
@@ -201,10 +140,12 @@ p{
 }
 
 .chat .messages-chat .text {
-  margin: 0 35px;
-  background-color: #f6f6f6;
-  padding: 15px;
+  margin: 0 30px;
+  background-color: #eaeaea;
+  padding: 10px;
+  width: 60%;
   border-radius: 12px;
+  word-break: break-word;
 }
 
 .text-only {
@@ -246,7 +187,7 @@ p{
 }
 
 .chat .footer-chat .icon {
-  margin-left: 30px;
+  margin-left: 2%;
   color:#C0C0C0;
   font-size: 14pt;
 }
@@ -254,11 +195,10 @@ p{
 .chat .footer-chat .send {
   color: #fff;
   background-color: #4f6ebd;
-  padding: 12px;
+  padding: 8px;
   border-radius: 11px;
-  font-size: 19px;
+  font-size: 17px;
   margin-left: 2%;
-  font-family: none;
 }
 
 .chat .footer-chat .name {
@@ -276,16 +216,21 @@ p{
 
 .write-message {
   border: 1px solid darkgrey;
-  width:39%;
-  height: 50px;
-  margin-left: 20px;
-  padding: 10px;
+  resize: none;
+  width: 76%;
+  height: 85px;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 7px;
+  margin-left: 1.8%;
 }
 .write-message1 {
   border: 1px solid darkgrey;
-  width:25%;
+  width: 55%;
   height: 50px;
-  margin-left: 10px;
+  margin-left: 9%;
+  border-radius: 6px;
+  padding: 13px;
 }
 
 .footer-chat *::-webkit-input-placeholder {
@@ -309,4 +254,3 @@ p{
 .clickable {
   cursor: pointer;
 }
-
