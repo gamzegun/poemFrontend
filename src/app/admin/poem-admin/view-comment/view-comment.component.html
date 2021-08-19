@@ -1,11 +1,11 @@
 
 <div class="container">
-  <div class="row">
-    <section class="chat">
+  <div class="row" [ngStyle]="{'margin-right':comments.length===0? '5px':'', 'height':comments.length===0? '198px':'','margin-left':comments.length===0? '1px':''}">
+    <section class="chat"  >
       <div class="footer-chat">
         <i class="icon fa fa-smile-o clickable" style="font-size:25pt;" aria-hidden="true"></i>
-        <input type="text" class="write-message"  placeholder="Cevap yaz..." [(ngModel)]="answer"/>
-        <i class="icon send fa fa-paper-plane-o clickable" (click)="doComment()" aria-hidden="true">Gönder</i>
+        <input type="text" class="write-message" [ngStyle]="{'margin-left':comments.length===0? '-4.2%':'' , 'width':comments.length===0? '76%':'' }"  placeholder="Cevap yaz..." [(ngModel)]="answer"/>
+        <i class="icon send fa fa-paper-plane-o clickable"  [ngStyle]="{'margin-left':comments.length===0? '2%':''}" (click)="doComment()" aria-hidden="true">Gönder</i>
       </div>
       <div class="messages-chat">
         <div class="message" *ngFor="let comment of comments">
